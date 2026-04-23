@@ -5,13 +5,21 @@
 }
 
 :root {
-  --bg: #f6f1e6;          /* warm cream */
-  --panel: #e9e2d3;       /* sand panel */
+  /* 🌊 Cream + Ocean palette */
+  --bg: #f6f1e6;
+  --bg-deep: #efe6d6;
+
+  --panel: #e9e2d3;
   --panel-2: #dcd3c2;
-  --text: #1f2a2e;        /* deep ocean ink */
+
+  --text: #1f2a2e;
   --muted: #5b6b73;
-  --accent: #2f7f86;      /* sea teal */
-  --accent-soft: #a9d6d2; /* foam */
+
+  /* Teal ocean system */
+  --accent: #2b8c93;
+  --accent-2: #3fb7b1;
+  --accent-soft: #bfe9e5;
+
   --border: rgba(31, 42, 46, 0.12);
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
@@ -19,11 +27,18 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #f7f2e7, #efe6d6);
   color: var(--text);
+
+  /* 🌊 creamy ocean gradient */
+  background: linear-gradient(
+    180deg,
+    #f7f2e7 0%,
+    #f0e7d7 45%,
+    #e7ddcc 100%
+  );
 }
 
-/* Prevent layout shift when content loads */
+/* Prevent layout shift */
 html, body {
   height: 100%;
   overflow: hidden;
@@ -41,9 +56,14 @@ html, body {
 
 #sidebar {
   width: 300px;
-  background: rgba(233, 226, 211, 0.85);
-  backdrop-filter: blur(10px);
+
+  /* 🌊 glass ocean panel */
+  background: rgba(233, 226, 211, 0.72);
+  backdrop-filter: blur(14px);
+
   border-right: 1px solid var(--border);
+  box-shadow: inset -1px 0 0 rgba(63, 183, 177, 0.08);
+
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -58,10 +78,11 @@ html, body {
   letter-spacing: 0.3px;
 }
 
-/* Search */
+/* ========== Search ========== */
+
 #search {
   width: 100%;
-  padding: 10px 10px;
+  padding: 10px;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.6);
@@ -72,10 +93,9 @@ html, body {
 #search:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(47, 127, 134, 0.15);
+  box-shadow: 0 0 0 3px rgba(43, 140, 147, 0.15);
 }
 
-/* Search results */
 #search-results {
   margin-top: 8px;
   max-height: 180px;
@@ -90,11 +110,16 @@ html, body {
   transition: 0.15s ease;
 }
 
-.search-result:hover {
-  background: rgba(47, 127, 134, 0.12);
+/* unified hover glow */
+.search-result:hover,
+.folder-name:hover,
+.note-link:hover {
+  background: rgba(43, 140, 147, 0.10);
+  box-shadow: 0 0 0 1px rgba(63, 183, 177, 0.12);
 }
 
-/* Tree */
+/* ========== Tree ========== */
+
 #tree {
   margin-top: 10px;
   font-size: 0.9rem;
@@ -110,10 +135,6 @@ html, body {
   user-select: none;
   padding: 4px 6px;
   border-radius: 6px;
-}
-
-.folder-name:hover {
-  background: rgba(47, 127, 134, 0.08);
 }
 
 .folder-children {
@@ -132,7 +153,6 @@ html, body {
 }
 
 .note-link:hover {
-  background: rgba(47, 127, 134, 0.10);
   color: var(--text);
 }
 
@@ -146,7 +166,7 @@ html, body {
   background: var(--bg);
 }
 
-/* Breadcrumb (sticky feel + stable spacing) */
+/* breadcrumb */
 #breadcrumb {
   padding: 12px 18px;
   border-bottom: 1px solid var(--border);
@@ -156,23 +176,22 @@ html, body {
   color: var(--muted);
 }
 
-/* Content (FIXED spacing + loading stability) */
+/* content */
 #content {
   flex: 1;
-  padding: 24px 28px;
+  padding: 26px 30px;
   overflow-y: auto;
-
-  /* prevents “jumping” when markdown loads */
   min-height: 0;
 }
 
-/* Optional: smoother load feel */
+/* smooth anchor scroll */
 #content * {
   scroll-margin-top: 80px;
 }
 
 /* ========== Markdown ========== */
 
+/* headings breathing room */
 #content h1,
 #content h2,
 #content h3,
@@ -180,16 +199,19 @@ html, body {
 #content h5,
 #content h6 {
   color: var(--text);
-  margin-top: 1.2em;
-  margin-bottom: 0.4em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  letter-spacing: 0.2px;
 }
 
+/* paragraphs spacing FIX */
 #content p {
-  line-height: 1.6;
-  margin: 0.6em 0;
+  line-height: 1.75;
+  margin: 0.9em 0;
   color: var(--text);
 }
 
+/* links */
 #content a {
   color: var(--accent);
   text-decoration: none;
@@ -199,42 +221,62 @@ html, body {
   text-decoration: underline;
 }
 
-/* Code blocks */
+/* ========== Code Blocks (FIXED spacing) ========== */
+
 #content pre {
   background: rgba(31, 42, 46, 0.06);
-  padding: 12px;
-  border-radius: 10px;
+  padding: 16px;
+  border-radius: 12px;
   overflow-x: auto;
   border: 1px solid var(--border);
+  margin: 1.2em 0;
+  line-height: 1.6;
 }
 
+/* IMPORTANT: prevents cramped code rendering */
+#content pre code {
+  display: block;
+  white-space: pre;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* inline code */
 #content code {
   font-family: "Fira Code", monospace;
   font-size: 0.9em;
+
+  background: rgba(63, 183, 177, 0.10);
+  padding: 2px 6px;
+  border-radius: 6px;
 }
 
-/* Tables */
+/* ========== Tables (FIXED spacing) ========== */
+
 #content table {
   border-collapse: collapse;
-  margin: 12px 0;
+  margin: 16px 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
   overflow: hidden;
 }
 
 #content th,
 #content td {
   border: 1px solid var(--border);
-  padding: 8px 10px;
+  padding: 10px 12px;
+  line-height: 1.5;
 }
 
-/* Blockquote (ocean depth feel) */
+/* ========== Blockquotes (ocean depth feel) ========== */
+
 #content blockquote {
   border-left: 3px solid var(--accent);
   margin: 12px 0;
   padding: 10px 14px;
   color: var(--muted);
-  background: rgba(47, 127, 134, 0.06);
+  background: rgba(43, 140, 147, 0.08);
   border-radius: 8px;
 }
