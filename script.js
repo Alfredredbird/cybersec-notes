@@ -210,7 +210,7 @@ function init() {
   });
 
   // Optionally load a default note
-  const defaultNote = NOTES.find((n) => n.id === "termonology") || NOTES[0];
+  const defaultNote = NOTES.find((n) => n.id === "Termonology") || NOTES[0];
   if (defaultNote) loadNote(defaultNote);
 }
 

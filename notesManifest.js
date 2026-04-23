@@ -113,7 +113,7 @@ const NOTES = [
     id: "terminology",
     title: "Terminology",
     wikiName: "Terminology",
-    path: "terminology/terminology.md",
+    path: "Termonology/Termonology.md",
     folder: "terminology"
   },
 {
