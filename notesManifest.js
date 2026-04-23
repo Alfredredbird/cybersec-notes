@@ -116,27 +116,27 @@ const NOTES = [
     path: "terminology/terminology.md",
     folder: "terminology"
   },
-  {
-    id: "code-languages",
-    title: "Code Languages",
-    wikiName: "Code Languages",
-    path: "terminology/code-languages.md",
-    folder: "terminology"
-  },
-  {
-    id: "code-commands",
-    title: "Code Commands",
-    wikiName: "Code Commands",
-    path: "terminology/code-commands.md",
-    folder: "terminology"
-  },
-  {
-    id: "tools-term",
-    title: "Tools",
-    wikiName: "Tools",
-    path: "terminology/tools.md",
-    folder: "terminology"
-  },
+{
+  id: "code-commands",
+  title: "Code Commands",
+  wikiName: "Code Commands",
+  path: "Termonology/Commands/Code Commands.md",
+  folder: "Termonology/Commands"
+},
+{
+  id: "code-languages",
+  title: "Code Languages",
+  wikiName: "Code Languages",
+  path: "Termonology/Code Languages/Code Languages.md",
+  folder: "Termonology/Code Languages"
+},
+{
+  id: "tools-term",
+  title: "Tools",
+  wikiName: "Tools",
+  path: "Termonology/Tools/Tools.md",
+  folder: "Termonology/Tools"
+}
 
   // Volatility
   {
