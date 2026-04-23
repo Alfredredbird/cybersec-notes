@@ -1,71 +1,45 @@
 // notesManifest.js
 
-// Flat list of notes with paths relative to this HTML file
 const NOTES = [
-  // Root files
+  // Root
   {
-    id: "chinneese-resources",
-    title: "chinneese resources",
-    wikiName: "chinneese resources",
-    path: "chinneese resources.md",
+    id: "chinese-resources",
+    title: "Chinese Resources",
+    wikiName: "Chinese Resources",
+    path: "chinese-resources.md",
     folder: ""
   },
   {
     id: "notes-format",
     title: "Notes Format",
     wikiName: "Notes Format",
-    path: "Notes Format.md",
+    path: "notes-format.md",
     folder: ""
   },
 
-  // Enumaration
+  // Enumeration
   {
-    id: "nfs-enum",
-    title: "NFS Enumeration and Share Enumeration",
-    wikiName: "Enumaration",
-    path: "Enumaration/NFS Enumeration and Share Enumeration.md",
-    folder: "Enumaration"
-  },
-
-  // GDB
-  {
-    id: "gdb-cheatsheet",
-    title: "GNU Debugger Cheatsheet",
-    wikiName: "GNU Debugger Cheatsheet",
-    path: "GDB/GNU Debugger Cheatsheet.md",
-    folder: "GDB"
-  },
-  {
-    id: "gdb-re",
-    title: "Reverse Engineering with GDB",
-    wikiName: "Reverse Engineering with GDB",
-    path: "GDB/Reverse Engineering with GDB.md",
-    folder: "GDB"
-  },
-
-  // gobuster
-  {
-    id: "gobuster-cheatsheet",
-    title: "Gobuster cheat sheet",
-    wikiName: "gobuster",
-    path: "gobuster/Gobuster cheat sheet.md",
-    folder: "gobuster"
+    id: "nfs-share-enum",
+    title: "NFS & Share Enumeration",
+    wikiName: "NFS & Share Enumeration",
+    path: "enumeration/nfs-share-enumeration.md",
+    folder: "enumeration"
   },
 
   // Linux
   {
-    id: "linux-30-days",
-    title: "learn linux in 30 days",
-    wikiName: "learn linux in 30 days",
-    path: "Linux/learn linux in 30 days.md",
-    folder: "Linux"
-  },
-  {
     id: "linux-cheatsheet",
     title: "Linux Learning Cheat Sheet",
     wikiName: "Linux Learning Cheat Sheet",
-    path: "Linux/Linux Learning Cheat Sheet.md",
-    folder: "Linux"
+    path: "linux/linux-learning-cheatsheet.md",
+    folder: "linux"
+  },
+  {
+    id: "linux-30-days",
+    title: "Learn Linux in 30 Days",
+    wikiName: "Learn Linux in 30 Days",
+    path: "linux/learn-linux-in-30-days.md",
+    folder: "linux"
   },
 
   // Privilege Escalation
@@ -73,8 +47,8 @@ const NOTES = [
     id: "priv-esc",
     title: "Privilege Escalation",
     wikiName: "Privilege Escalation",
-    path: "Privilege Escalation/Privilege Escalation.md",
-    folder: "Privilege Escalation"
+    path: "privilege-escalation/privilege-escalation.md",
+    folder: "privilege-escalation"
   },
 
   // Protocols
@@ -82,83 +56,115 @@ const NOTES = [
     id: "ssh",
     title: "SSH",
     wikiName: "SSH",
-    path: "Protocols/SSH.md",
-    folder: "Protocols"
+    path: "protocols/ssh.md",
+    folder: "protocols"
   },
 
-  // Rev Eng
-  {
-    id: "radare2",
-    title: "Radare2 CLI cheat-sheet",
-    wikiName: "Radare2 CLI cheat-sheet",
-    path: "Rev Eng/Radare2 CLI cheat-sheet.md",
-    folder: "Rev Eng"
-  },
+  // Reverse Engineering
   {
     id: "rev-resources",
-    title: "Resources",
-    wikiName: "Rev Eng Resources",
-    path: "Rev Eng/Resources.md",
-    folder: "Rev Eng"
+    title: "Reverse Engineering Resources",
+    wikiName: "Reverse Engineering Resources",
+    path: "reverse-engineering/resources.md",
+    folder: "reverse-engineering"
   },
   {
     id: "rev-roadmap",
-    title: "Reverse Engineering Learning Roadmap",
-    wikiName: "Reverse Engineering Learning Roadmap",
-    path: "Rev Eng/Reverse Engineering Learning Roadmap.md",
-    folder: "Rev Eng"
+    title: "Reverse Engineering Roadmap",
+    wikiName: "Reverse Engineering Roadmap",
+    path: "reverse-engineering/roadmap.md",
+    folder: "reverse-engineering"
+  },
+  {
+    id: "rev-core",
+    title: "Reverse Engineering",
+    wikiName: "Reverse Engineering",
+    path: "reverse-engineering/reverse-engineering.md",
+    folder: "reverse-engineering"
+  },
+
+  // Tools (inside reverse engineering)
+  {
+    id: "gdb",
+    title: "GDB Cheatsheet",
+    wikiName: "GDB Cheatsheet",
+    path: "reverse-engineering/tools/gdb.md",
+    folder: "reverse-engineering/tools"
+  },
+  {
+    id: "radare2",
+    title: "Radare2 Cheatsheet",
+    wikiName: "Radare2 Cheatsheet",
+    path: "reverse-engineering/tools/radare2.md",
+    folder: "reverse-engineering/tools"
   },
 
   // Reverse Shells
   {
-    id: "reverse-shell-generic-linux",
-    title: "Generic Linux",
-    wikiName: "Generic Linux",
-    path: "Reverse Shells/Generic Linux.md",
-    folder: "Reverse Shells"
+    id: "reverse-shell-linux",
+    title: "Generic Linux Reverse Shell",
+    wikiName: "Generic Linux Reverse Shell",
+    path: "reverse-shells/generic-linux.md",
+    folder: "reverse-shells"
   },
 
-  // Termonology
+  // Terminology
   {
-    id: "termonology",
-    title: "Termonology",
-    wikiName: "Termonology",
-    path: "Termonology/Termonology.md",
-    folder: "Termonology"
+    id: "terminology",
+    title: "Terminology",
+    wikiName: "Terminology",
+    path: "terminology/terminology.md",
+    folder: "terminology"
   },
   {
     id: "code-languages",
     title: "Code Languages",
     wikiName: "Code Languages",
-    path: "Termonology/Code Languages/Code Languages.md",
-    folder: "Termonology/Code Languages"
+    path: "terminology/code-languages.md",
+    folder: "terminology"
+  },
+  {
+    id: "code-commands",
+    title: "Code Commands",
+    wikiName: "Code Commands",
+    path: "terminology/code-commands.md",
+    folder: "terminology"
+  },
+  {
+    id: "tools-term",
+    title: "Tools",
+    wikiName: "Tools",
+    path: "terminology/tools.md",
+    folder: "terminology"
   },
 
   // Volatility
   {
-    id: "volatility-cheatsheet",
+    id: "volatility",
     title: "Volatility Cheatsheet",
     wikiName: "Volatility Cheatsheet",
-    path: "Volatility/Volatility Cheatsheet.md",
-    folder: "Volatility"
+    path: "volatility/volatility-cheatsheet.md",
+    folder: "volatility"
   }
-
-  // Add OSINT and any new notes here as you create them
 ];
 
-// Helper: group notes by folder for sidebar tree
+// Folder tree builder (unchanged but now cleaner input)
 function buildFolderTree(notes) {
   const root = {};
+
   for (const note of notes) {
     const parts = note.folder ? note.folder.split("/") : [];
     let node = root;
+
     for (const part of parts) {
       if (!node[part]) node[part] = { __children: {} };
       node = node[part].__children;
     }
+
     if (!node.__files) node.__files = [];
     node.__files.push(note);
   }
+
   return root;
 }
 

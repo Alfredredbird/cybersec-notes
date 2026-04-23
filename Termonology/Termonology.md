@@ -26,19 +26,16 @@ The most common opensource [[SSH]] client/server.
 we can have `example.com` as our domain but a subdomain would be `admin.example.com`.
 
 # Commands
-## python
-Python command to use latest python version.
-## python2
-Python command to use python version 2.
-## python3
-Python command to use python version 3.
-## who
-Who shows who is logged into a system with a TTY enabled [[Termonology#Shell|Shell]].
+
+See [[Code Commands]]
 # Reverse Engineering
 
 # Basic Terms
 ## Host
 The host machine.
+
+# Tools
+See [[Tools]]
 
 # Penetration Testing
 ## Penetration Testing

@@ -19,7 +19,7 @@ To bring the [[Termonology#Shell|Shell]] from the foreground with full permissio
 ```Python
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 ```
-Upgrade [[Termonology#Shell|Shell]] with Python via the pty library. Can be substituted with [[Termonology#python|Python]] or [[Termonology#python2|Python2]].
+Upgrade [[Termonology#Shell|Shell]] with Python via the pty library. Can be substituted with [[Code Commands#python|python]] or [[Code Commands#python2|python2]].
 ## Set Terminal Environment
 ```Bash
 export TERM=xterm

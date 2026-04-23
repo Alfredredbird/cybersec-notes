@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Reverse Engenering/tools/Radare2.md",
+                "file": "Reverse Engenering/tools/GDB.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Radare2"
+              "title": "GDB"
             }
           }
         ]
@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Enumaration/Enumeration.md",
+                "file": "Termonology/Termonology.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Enumeration"
+              "title": "Termonology"
             }
           }
         ]
@@ -203,20 +203,24 @@
   },
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
-    "Enumaration/Enumeration.md",
+    "Resources to be refactored/GDB/Reverse Engineering with GDB.md",
+    "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
+    "Reverse Engenering/tools/GDB.md",
     "Reverse Engenering/tools/Radare2.md",
+    "Reverse Engenering/Resources.md",
     "Reverse Engenering/Reverse Engineering.md",
-    "Termonology/Tools/Tools.md",
-    "Protocols/SSH.md",
-    "Volatility/Volatility Cheatsheet.md",
-    "Termonology/Termonology.md",
     "Reverse Shells/Generic Linux.md",
+    "Termonology/Commands/Code Commands.md",
+    "Termonology/Termonology.md",
+    "Enumaration/Enumeration.md",
+    "Termonology/Tools/Tools.md",
+    "Termonology/Commands",
+    "Protocols/SSH.md",
     "Privilege Escalation/Privilege Escalation.md",
+    "Volatility/Volatility Cheatsheet.md",
     "Termonology/Tools",
     "Reverse Engenering/tools",
-    "Reverse Engenering/Resources.md",
     "Resources to be refactored/Rev Eng/Reverse Engineering Learning Roadmap.md",
-    "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
     "Notes Format.md",
     "website/script.js.md",
     "website/README.md",
@@ -234,10 +238,6 @@
     "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
     "Resources to be refactored",
     "Protocols",
-    "chinneese resources.md",
-    "Privilege Escalation",
-    "Termonology/Code Languages/Code Languages.md",
-    "create a link.md",
-    "yt wordlist.md"
+    "chinneese resources.md"
   ]
 }

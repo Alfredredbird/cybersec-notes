@@ -1,31 +1,26 @@
+# Pretext
 
-````markdown
-
-This guide teaches the basics of reverse engineering a compiled program using GDB, focusing on understanding program flow, inspecting memory, and analyzing behavior.
-
----
-
-## 1. Preparing the Program
+This note teaches the basics of reverse engineering a compiled program using GDB, focusing on understanding program flow, inspecting memory, and analyzing behavior. 
 
 Before reversing, compile with debug symbols (if you have the source):
-
-```bash
-gcc -g program.c -o program   # Includes debug symbols
-````
-
-If you don’t have source code, just use:
+Example of compiling a `C` Program with the debug symbols.
+```BBash
+gcc -g program.c -o program
+```
+If you don’t have source code, just use the following command to check architecture, binary type, and if it’s stripped.
 
 ```bash
 file program
 ```
-
-To check architecture, binary type, and if it’s stripped.
-
-**Tip:** Stripped binaries (`strip`) remove symbols; you’ll need more advanced techniques, like disassembly.
+Examples of output:
+```Bash
+program: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=96eaadbbc375b27b30cc52a1a7a801c5b2972ffd, for GNU/Linux 3.2.0, not stripped
+```
+ >Stripped binaries (`strip`) remove symbols. You’ll need more advanced techniques, like disassembly.
 
 ---
 
-## 2. Starting GDB
+# Starting GDB
 
 ```bash
 gdb ./program
