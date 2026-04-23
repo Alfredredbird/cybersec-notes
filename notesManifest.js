@@ -136,7 +136,7 @@ const NOTES = [
   wikiName: "Tools",
   path: "Termonology/Tools/Tools.md",
   folder: "Termonology/Tools"
-}
+},
 
   // Volatility
   {

@@ -201,11 +201,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4c640d3215b6cbde",
+  "active": "12ccc029f01ff2d3",
   "lastOpenFiles": [
+    "Reverse Engenering/tools/GDB.md",
     "Resources to be refactored/GDB/Reverse Engineering with GDB.md",
     "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
-    "Reverse Engenering/tools/GDB.md",
     "Reverse Engenering/tools/Radare2.md",
     "Reverse Engenering/Resources.md",
     "Reverse Engenering/Reverse Engineering.md",
