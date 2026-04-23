@@ -282,14 +282,25 @@ body::before {
 
 #breadcrumb span { color: var(--glow); }
 
-/* Content area */
+/* Content area — scrollable shell */
 #content {
   flex: 1;
-  padding: 36px 44px 60px;
+  padding: 44px 32px 80px;
   overflow-y: auto;
   min-height: 0;
   scrollbar-width: thin;
   scrollbar-color: var(--foam) transparent;
+
+  /* Center the inner content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Inner prose wrapper — constrains width and centers text */
+#content > * {
+  width: 100%;
+  max-width: 740px;
 }
 
 #content::-webkit-scrollbar { width: 6px; }

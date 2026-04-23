@@ -23,3 +23,11 @@ To embed a file, it's as simple as the following.
 ```Bash
 steghide embed -cf image.jpg -ef secret.txt -sf output.jpg
 ```
+
+# Stegcracker
+
+In the event that you do not know the password to the steghide file, you can use a tool called [[Tools#stegcracker|Stegcracker]].
+```Bash
+stegcracker image.jpg /usr/share/wordlists/rockyou.txt
+```
+File extraction is not guaranteed.

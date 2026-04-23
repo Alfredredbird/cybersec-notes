@@ -29,6 +29,7 @@ The gnu debugger.
 
 ## Steghide
 A Stenography tool to hide images and documents inside of a JPEG.
-
+## stegcracker
+A bruteforce tool to crack a steghide file.
 ## Binwalk
 A tool to detect possible hidden files in a file.

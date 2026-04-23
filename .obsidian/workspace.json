@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Stenography/Stenography.md",
+                "file": "Enumaration/Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Stenography"
+              "title": "Enumeration"
             }
           }
         ]
@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Termonology/Termonology.md",
+                "file": "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Termonology"
+              "title": "NFS Enumeration and Share Enumeration"
             }
           }
         ]
@@ -202,29 +202,32 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4c640d3215b6cbde",
+  "active": "12ccc029f01ff2d3",
   "lastOpenFiles": [
-    "Termonology/Termonology.md",
-    "Termonology/Tools/Tools.md",
-    "Stenography/Stenography.md",
+    "Privilege Escalation/Privilege Escalation.md",
     "Enumaration/Enumeration.md",
+    "Privilege Escalation/Shells.md",
+    "Termonology/Tools/Tools.md",
+    "Reverse Shells/Untitled.md",
+    "Stenography/Stenography.md",
+    "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
+    "Reverse Engenering/Resources.md",
+    "Notes Format.md",
+    "Termonology/Termonology.md",
     "Stenography",
     "Reverse Engenering/tools/GDB.md",
     "Reverse Engenering/tools/Radare2.md",
     "Resources to be refactored/GDB/Reverse Engineering with GDB.md",
     "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
-    "Reverse Engenering/Resources.md",
     "Reverse Engenering/Reverse Engineering.md",
     "Reverse Shells/Generic Linux.md",
     "Termonology/Commands/Code Commands.md",
     "Termonology/Commands",
     "Protocols/SSH.md",
-    "Privilege Escalation/Privilege Escalation.md",
     "Volatility/Volatility Cheatsheet.md",
     "Termonology/Tools",
     "Reverse Engenering/tools",
     "Resources to be refactored/Rev Eng/Reverse Engineering Learning Roadmap.md",
-    "Notes Format.md",
     "website/script.js.md",
     "website/README.md",
     "website/style.css",
@@ -236,9 +239,6 @@
     "website/index.html.md",
     "website",
     "Resources to be refactored/gobuster/Gobuster cheat sheet.md",
-    "Resources to be refactored/Linux/Linux Learning Cheat Sheet.md",
-    "Resources to be refactored/Linux/learn linux in 30 days.md",
-    "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
     "Resources to be refactored"
   ]
 }
