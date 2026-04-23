@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Enumaration/Enumeration.md",
+                "file": "Notes Format.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Enumeration"
+              "title": "Notes Format"
             }
           }
         ]
@@ -31,14 +31,10 @@
             "id": "12ccc029f01ff2d3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "website/README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           }
         ]
@@ -201,8 +197,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "593dc0e4be82d556",
+  "active": "55934392285598ad",
   "lastOpenFiles": [
+    "Enumaration/Enumeration.md",
     "website/script.js.md",
     "website/README.md",
     "website/style.css",
@@ -214,7 +211,6 @@
     "website/index.html.md",
     "Termonology/Termonology.md",
     "website",
-    "Enumaration/Enumeration.md",
     "Resources to be refactored/gobuster/Gobuster cheat sheet.md",
     "Resources to be refactored/Linux/Linux Learning Cheat Sheet.md",
     "Resources to be refactored/Linux/learn linux in 30 days.md",

@@ -47,6 +47,7 @@ function replaceWikiLinks(markdown) {
 \]
 
 /g;
+
   return markdown.replace(wikiRegex, (match, noteName, heading, label) => {
     const note = resolveWikiNote(noteName.trim());
     if (!note) return label || noteName; // fallback: plain text
