@@ -32,21 +32,7 @@ function renderBreadcrumb(note) {
 
 // Convert Obsidian-style [[Note#Heading|Label]] links to HTML anchors
 function replaceWikiLinks(markdown) {
-  const wikiRegex = /
-
-\[
-
-\[([^\]
-
-|#]+)(?:#([^\]
-
-|]+))?(?:\|([^\]
-
-]+))?\]
-
-\]
-
-/g;
+  const wikiRegex = /\[\[([^\]|#]+)(?:#([^\]|]+))?(?:\|([^\]]+))?\]\]/g;
 
   return markdown.replace(wikiRegex, (match, noteName, heading, label) => {
     const note = resolveWikiNote(noteName.trim());

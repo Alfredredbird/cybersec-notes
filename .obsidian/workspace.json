@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes Format.md",
+                "file": "Reverse Shells/Generic Linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Notes Format"
+              "title": "Generic Linux"
             }
           }
         ]
@@ -31,10 +31,14 @@
             "id": "12ccc029f01ff2d3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Termonology/Termonology.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Termonology"
             }
           }
         ]
@@ -110,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linux/Linux Learning Cheat Sheet.md",
+                "file": "Reverse Shells/Generic Linux.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +124,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Linux Learning Cheat Sheet"
+              "title": "Backlinks for Generic Linux"
             }
           },
           {
@@ -158,13 +162,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "website/README.md",
+                "file": "Reverse Shells/Generic Linux.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of Generic Linux"
             }
           },
           {
@@ -177,12 +181,12 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 403.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -197,8 +201,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "55934392285598ad",
+  "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
+    "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
+    "Privilege Escalation/Privilege Escalation.md",
+    "Notes Format.md",
+    "Termonology/Termonology.md",
     "Enumaration/Enumeration.md",
     "website/script.js.md",
     "website/README.md",
@@ -209,19 +217,16 @@
     "website/style.css.md",
     "website/notesManifest.js.md",
     "website/index.html.md",
-    "Termonology/Termonology.md",
     "website",
     "Resources to be refactored/gobuster/Gobuster cheat sheet.md",
     "Resources to be refactored/Linux/Linux Learning Cheat Sheet.md",
     "Resources to be refactored/Linux/learn linux in 30 days.md",
-    "Privilege Escalation/Privilege Escalation.md",
     "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
     "Resources to be refactored",
     "Resources to be refactored/Rev Eng/Radare2 CLI cheat-sheet.md",
     "Protocols/SSH.md",
     "Protocols",
     "chinneese resources.md",
-    "Notes Format.md",
     "Reverse Shells/Generic Linux.md",
     "Privilege Escalation",
     "Termonology/Code Languages/Code Languages.md",
@@ -233,7 +238,6 @@
     "Untitled.base",
     "Termonology/Code Languages",
     "2026-04-22.md",
-    "Rev.md",
-    "GDB/Reverse Engineering with GDB.md"
+    "Rev.md"
   ]
 }
