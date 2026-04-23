@@ -115,6 +115,60 @@ vsftpd 3.0.3 - Remote Denial of Service
 Shellcodes: No Results             
 ```
 
+# NFS
+
+Network File System share can be enumerated on a network easily. 
+Misconfigured NFS shares often allow:
+- Anonymous access
+- Root squashing bypass
+- Sensitive file disclosure
+- Privilege escalation
+
+---
+
+We will first start with an [[Tools#Nmap|nmap]] scan to see what we can find.
+```Bash
+nmap -p 111,2049 --script=nfs* <target>
+```
+After the command is done running, we can continue with listing our shares with [[Linux Commands#showmount|showmount]].
+```bash
+showmount -e <target>
+```
+We can then enumerate all mount info.
+```bash
+showmount -a <target>
+```
+We can finally enumerate all mounted share info.
+```bash
+showmount -d <target>
+```
+
+---
+
+Assuming everything went well, we can do a test mount without authentication.
+```bash
+mkdir /mnt/nfs
+mount -t nfs <target>:/share /mnt/nfs
+```
+Sometimes the shares need to be mounted with `vers=3` or `vers-4`.
+```bash
+mount -t nfs -o vers=3 <target>:/share /mnt/nfs
+```
+---
+```bash
+mount -t nfs4 <target>:/share /mnt/nfs
+```
+
+---
+
+If the above methods are not working, we can try to enumerate via RPC services.
+```Bash
+rpcinfo -p <target>
+```
+---
+```Bash
+rpcinfo -u <target> nfs
+```
+
 # SMB Shares
 # Active Directory
-# NFS

@@ -10,3 +10,4 @@ Python command to use python version 2.
 Python command to use python version 3.
 ## who
 Who shows who is logged into a system with a TTY enabled [[Termonology#Shell|Shell]].
+
