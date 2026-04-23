@@ -1,29 +1,21 @@
-# Radare2 CLI cheat-sheet (ELF x86_64)
+# Pretext
+A basic intro and information on [[Tools#Reverse Engineering|Radare2]]
 
-
-> Basic start (auto-analyze):
-
+# Auto Analysis
+We can have [[Tools#Reverse Engineering|Radare2]] analyze our binary
 ```bash
-# open and run auto-analysis (slow but thorough)
 r2 -A ./wrecked
-
-# or open without analysis so you can run commands manually:
+```
+---
+```bash
+r2 -AAA ./wrecked
+```
+---
+```Bash
 r2 ./wrecked
 ```
+ Every `-A` specifics the depth in which it should analyze with a max of `-AAA`.
 
----
-
-# 1 — Quick external probes (before r2)
-
-```bash
-# quick binary metadata
-file wrecked
-rabin2 -I wrecked     # high-level info (arch, bits, libs, entry)
-readelf -h wrecked    # ELF header
-readelf -s wrecked    # symbol table
-ldd ./wrecked          # dynamic libs (if runnable on your system)
-strings wrecked | less  # obvious strings
-```
 
 ---
 

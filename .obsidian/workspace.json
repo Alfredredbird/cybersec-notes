@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Reverse Shells/Generic Linux.md",
+                "file": "Reverse Engenering/Reverse Engineering.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Generic Linux"
+              "title": "Reverse Engineering"
             }
           }
         ]
@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Termonology/Termonology.md",
+                "file": "Enumaration/Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Termonology"
+              "title": "Enumeration"
             }
           }
         ]
@@ -203,11 +203,21 @@
   },
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
-    "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
-    "Privilege Escalation/Privilege Escalation.md",
-    "Notes Format.md",
-    "Termonology/Termonology.md",
+    "Reverse Engenering/tools/Radare2.md",
+    "Reverse Engenering/Reverse Engineering.md",
     "Enumaration/Enumeration.md",
+    "Termonology/Tools/Tools.md",
+    "Protocols/SSH.md",
+    "Volatility/Volatility Cheatsheet.md",
+    "Termonology/Termonology.md",
+    "Reverse Shells/Generic Linux.md",
+    "Privilege Escalation/Privilege Escalation.md",
+    "Termonology/Tools",
+    "Reverse Engenering/tools",
+    "Reverse Engenering/Resources.md",
+    "Resources to be refactored/Rev Eng/Reverse Engineering Learning Roadmap.md",
+    "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
+    "Notes Format.md",
     "website/script.js.md",
     "website/README.md",
     "website/style.css",
@@ -223,21 +233,11 @@
     "Resources to be refactored/Linux/learn linux in 30 days.md",
     "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
     "Resources to be refactored",
-    "Resources to be refactored/Rev Eng/Radare2 CLI cheat-sheet.md",
-    "Protocols/SSH.md",
     "Protocols",
     "chinneese resources.md",
-    "Reverse Shells/Generic Linux.md",
     "Privilege Escalation",
     "Termonology/Code Languages/Code Languages.md",
     "create a link.md",
-    "yt wordlist.md",
-    "Welcome.md",
-    "Pretext.md",
-    "Weekly Worksheet - LP3 (60 minutes).md",
-    "Untitled.base",
-    "Termonology/Code Languages",
-    "2026-04-22.md",
-    "Rev.md"
+    "yt wordlist.md"
   ]
 }

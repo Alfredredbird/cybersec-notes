@@ -3,7 +3,7 @@ Enumeration is the first initial steps to discover what is running on a target s
 
 # Port Scanning
 Port scanning involves scanning an [[Termonology#IP|IP]] for open [[Termonology#Port|Ports]] to find vulnerabilities or what is running on it.
-We can use a tool called [[Termonology#Nmap|Nmap]] to scan for ports.
+We can use a tool called [[Tools#Nmap|Nmap]] to scan for ports.
 ```Bash
 nmap -sV -A -T5 -Pn -p- 192.168.x.x -vvv
 ```
@@ -43,7 +43,7 @@ PORT     STATE SERVICE         VERSION
 # Directory Enumeration
 Directory enumeration can be done in various ways.
 The whole idea is to find and discover hidden files and directories on a website.
-We can use [[Termonology#gobuster|gobuster]], [[Termonology#dirbuster|dirbuster]], or [[Termonology#ffuf|ffuf]] to enumerate. 
+We can use [[Tools#gobuster|gobuster]], [[Tools#dirbuster|dirbuster]], or [[Tools#ffuf|ffuf]] to enumerate. 
 All should have the same expected outputs.
 With this command, we not only scan for directories, but we also make an attempt to find json,php,txt files.
 ```Bash
@@ -58,11 +58,11 @@ gobuster dir -u http://192.168.x.x -w /usr/share/wordlists/directorylist.txt -t 
 | vhost | `gobuster vhost -u URL -w WORDLIST`     | Virtual host discovery     |
 | fuzz  | `gobuster fuzz -u URL/FUZZ -w WORDLIST` | Custom fuzzing             |
 
-The [[Termonology#dirbuster|dirbuster]] equivalent. 
+The [[Tools#dirbuster|dirbuster]] equivalent. 
 ```Bash
 dirb http://192.168.x.x /usr/share/wordlists/directorylist.txt -t 100 -X .json,.php,.txt
 ```
-The [[Termonology#ffuf|ffuf]] equivalent.
+The [[Tools#ffuf|ffuf]] equivalent.
 ```Bash
 ffuf -u http://192.168.x.x/FUZZ -w /usr/share/wordlists/directorylist.txt \  
 -t 100 -e .json,.php,.txt
@@ -80,7 +80,7 @@ http://192.168.x.x/subfolder/
 Subdomains are a child part of a domain. 
 Example we can have `example.com` but a [[Termonology#subdomain|subdomain]] would be `admin.example.com`.
 The domain will still be `example.com` but `admin.example.com` will be the [[Termonology#subdomain|subdomain]].
-We can enumerate them via [[Termonology#ffuf|ffuf]].
+We can enumerate them via [[Tools#ffuf|ffuf]].
 ```Bash
 ffuf -u http://FUZZ.example.com -w wordlist.txt -mc 200
 ```
@@ -94,8 +94,8 @@ wpscan --url (target) -e u
 ```
 
 # Exploit Searching
-After doing a simple [[Termonology#Nmap|Nmap]] scan it's best to do an exploit search. 
-You can use [[Termonology#Searchsploit|Searchsploit]] or the [exploit-db](https://www.exploit-db.com/).
+After doing a simple [[Tools#Nmap|Nmap]] scan it's best to do an exploit search. 
+You can use [[Tools#Searchsploit|Searchsploit]] or the [exploit-db](https://www.exploit-db.com/).
 ```Bash
 └─$ searchsploit vsftpd                
 ------------------------------------------------------

@@ -36,7 +36,7 @@ function replaceWikiLinks(markdown) {
 
   return markdown.replace(wikiRegex, (match, noteName, heading, label) => {
     const note = resolveWikiNote(noteName.trim());
-    if (!note) return label || noteName; // fallback: plain text
+    if (!note) return label || noteName;
 
     const dataAttrs = [
       `data-note-id="${note.id}"`,

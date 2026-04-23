@@ -54,7 +54,7 @@ echo 'PUBKEY' >> ~/.ssh/authorized_keys
 Now when logging in with the RSA key file, you must supply the username of the user the key was given too.
 # Decrypting RSA Files
 Decrypting RSA files allows us to grab the password that the key file is encrypted with.
-We can use [[Termonology#JohnTheRipper|JohnTheRipper]] and [[Termonology#RockYou.txt|RockYou.txt]] or other word-lists.
+We can use [[Tools#JohnTheRipper|JohnTheRipper]] and [[Termonology#RockYou.txt|RockYou.txt]] or other word-lists.
 First we get the hash with `ssh2john` and save it to a file called `hash`.
 ```Bash
 ssh2john (id_rsa) > hash

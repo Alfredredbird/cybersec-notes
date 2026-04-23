@@ -1,0 +1,24 @@
+# Pretext
+Terminology of popular penetration tools.
+# Decryption
+## JohnTheRipper
+A popular decryption set of tools.
+
+# Enumeration
+## Nmap
+A network mapping tool for doing server enumeration.
+## Searchsploit
+## gobuster
+A popular directory enumeration tool.
+## dirbuster
+A popular directory enumeration tool.
+## ffuf
+A popular web enumeration tool for subdomains and directories.
+
+# Brute Forcing
+## Hydra
+A popular tool for web based login attacks.
+
+# Reverse Engineering 
+## Radare2
+A popular command line based reverse engineering tool.

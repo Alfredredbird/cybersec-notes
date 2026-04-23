@@ -62,21 +62,6 @@ The Kitty terminal.
 ## xterm
 Xterm terminal.
 
-# Tools
-## JohnTheRipper
-A popular decryption set of tools.
-## Hydra
-A popular tool for web based login attacks.
-## Nmap
-A network mapping tool for doing server enumeration.
-## Searchsploit
-## gobuster
-A popular directory enumeration tool.
-## dirbuster
-A popular directory enumeration tool.
-## ffuf
-A popular web enumeration tool for subdomains and directories.
-
 # Word lists
 ## RockYou.txt
 A popular word list from the RockYou data breach. Contains ruffly 14 million passwords.
