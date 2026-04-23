@@ -24,3 +24,11 @@ A popular tool for web based login attacks.
 A popular command line based reverse engineering tool.
 ## GDB
 The gnu debugger.
+
+# Stenography
+
+## Steghide
+A Stenography tool to hide images and documents inside of a JPEG.
+
+## Binwalk
+A tool to detect possible hidden files in a file.
