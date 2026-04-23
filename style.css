@@ -1,4 +1,6 @@
-/* style.css */
+/* =========================
+   Base / Reset
+========================= */
 
 * {
   box-sizing: border-box;
@@ -6,63 +8,87 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #111;
-  color: #eee;
+  font-family: var(--font-interface-theme);
+  background: var(--background);
+  color: var(--text-normal);
+  -webkit-font-smoothing: antialiased;
 }
+
+/* =========================
+   App Layout
+========================= */
 
 #app {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
-/* Sidebar */
+/* =========================
+   Sidebar
+========================= */
 
 #sidebar {
-  width: 280px;
-  background: #181818;
-  border-right: 1px solid #333;
-  padding: 12px;
+  width: 290px;
+  background: var(--background);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   overflow-y: auto;
 }
 
 #sidebar h1 {
   font-size: 1.1rem;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+  color: var(--text-accent);
+  letter-spacing: 0.3px;
 }
+
+/* Search */
 
 #search {
   width: 100%;
-  padding: 6px 8px;
-  border-radius: 4px;
-  border: 1px solid #444;
-  background: #111;
-  color: #eee;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-normal);
+  transition: 0.15s ease;
 }
 
 #search:focus {
-  outline: 1px solid #4f9cff;
+  outline: none;
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 2px rgba(var(--rose-rgb), 0.2);
 }
+
+/* Search results */
 
 #search-results {
   margin-top: 6px;
-  max-height: 160px;
+  max-height: 180px;
   overflow-y: auto;
   font-size: 0.85rem;
 }
 
 .search-result {
-  padding: 4px 6px;
-  border-radius: 3px;
+  padding: 6px 8px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: 0.15s ease;
+  color: var(--text-muted);
 }
 
 .search-result:hover {
-  background: #2a2a2a;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-normal);
 }
+
+/* =========================
+   Tree Navigation
+========================= */
 
 #tree {
   margin-top: 8px;
@@ -70,31 +96,48 @@ body {
 }
 
 .folder {
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .folder-name {
   font-weight: 600;
   cursor: pointer;
   user-select: none;
+  padding: 4px 6px;
+  border-radius: 6px;
+  color: var(--text-normal);
+  transition: 0.15s ease;
+}
+
+.folder-name:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-accent);
 }
 
 .folder-children {
   margin-left: 12px;
-  margin-top: 2px;
+  margin-top: 4px;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  padding-left: 8px;
 }
 
 .note-link {
   display: block;
-  padding: 2px 0;
+  padding: 4px 6px;
+  border-radius: 6px;
   cursor: pointer;
+  color: var(--text-muted);
+  transition: 0.15s ease;
 }
 
 .note-link:hover {
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-normal);
 }
 
-/* Main */
+/* =========================
+   Main Content
+========================= */
 
 #main {
   flex: 1;
@@ -105,18 +148,25 @@ body {
 
 #breadcrumb {
   padding: 10px 16px;
-  border-bottom: 1px solid #333;
-  background: #141414;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.15);
   font-size: 0.85rem;
-  color: #aaa;
+  color: var(--text-muted);
 }
+
+/* Content area */
 
 #content {
-  padding: 16px;
+  padding: 20px 26px;
   overflow-y: auto;
+  line-height: 1.65;
+  font-size: 0.95rem;
+  max-width: 900px;
 }
 
-/* Markdown content */
+/* =========================
+   Markdown Styling
+========================= */
 
 #content h1,
 #content h2,
@@ -124,38 +174,66 @@ body {
 #content h4,
 #content h5,
 #content h6 {
-  color: #fff;
+  color: var(--text-normal);
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
 }
+
+#content h1 { font-size: 1.8rem; }
+#content h2 { font-size: 1.4rem; }
+#content h3 { font-size: 1.2rem; }
 
 #content a {
-  color: #4f9cff;
+  color: var(--text-accent);
+  text-decoration: none;
 }
 
+#content a:hover {
+  text-decoration: underline;
+}
+
+/* Code */
+
 #content pre {
-  background: #1b1b1b;
-  padding: 10px;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 12px;
+  border-radius: 10px;
   overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 #content code {
-  font-family: "Fira Code", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
 }
+
+/* Tables */
 
 #content table {
   border-collapse: collapse;
-  margin: 8px 0;
+  margin: 10px 0;
+  width: 100%;
+  font-size: 0.9rem;
 }
 
 #content th,
 #content td {
-  border: 1px solid #444;
-  padding: 4px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 8px;
 }
 
+#content th {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-normal);
+}
+
+/* Blockquotes */
+
 #content blockquote {
-  border-left: 3px solid #444;
-  margin: 8px 0;
-  padding-left: 8px;
-  color: #ccc;
+  border-left: 3px solid var(--interactive-accent);
+  margin: 10px 0;
+  padding: 8px 12px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
 }

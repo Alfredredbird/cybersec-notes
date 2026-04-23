@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Reverse Engenering/Reverse Engineering.md",
+                "file": "Reverse Engenering/tools/Radare2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Reverse Engineering"
+              "title": "Radare2"
             }
           }
         ]
@@ -203,9 +203,9 @@
   },
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
+    "Enumaration/Enumeration.md",
     "Reverse Engenering/tools/Radare2.md",
     "Reverse Engenering/Reverse Engineering.md",
-    "Enumaration/Enumeration.md",
     "Termonology/Tools/Tools.md",
     "Protocols/SSH.md",
     "Volatility/Volatility Cheatsheet.md",
