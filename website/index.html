@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cyber Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <h1>Cyber Notes</h1>
+      <input id="search" type="text" placeholder="Search notes..." />
+      <div id="search-results"></div>
+      <nav id="tree"></nav>
+    </aside>
+
+    <main id="main">
+      <header id="breadcrumb"></header>
+      <article id="content">Select a note from the left.</article>
+    </main>
+  </div>
+
+  <script src="notesManifest.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

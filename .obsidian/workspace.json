@@ -1,0 +1,243 @@
+{
+  "main": {
+    "id": "2f865ce4505072ad",
+    "type": "split",
+    "children": [
+      {
+        "id": "c87c35706273822d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4c640d3215b6cbde",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Enumaration/Enumeration.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Enumeration"
+            }
+          }
+        ]
+      },
+      {
+        "id": "6aea3804c8868c9e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "12ccc029f01ff2d3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "website/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e429d419f54ab8b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "b11b6fb02ccb4944",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "55934392285598ad",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "0b20d5048614b898",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d0f186c6b0a7ec9b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4b4009b5dd5b1657",
+    "type": "split",
+    "children": [
+      {
+        "id": "b257ddea14e39f9a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "14e4e002e5b32c37",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Linux/Linux Learning Cheat Sheet.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Linux Learning Cheat Sheet"
+            }
+          },
+          {
+            "id": "c6a75521d1dc3e4c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Linux/Linux Learning Cheat Sheet.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Linux Learning Cheat Sheet"
+            }
+          },
+          {
+            "id": "747f537bda18cfcb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "cd138d7470ef2752",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "website/README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of README"
+            }
+          },
+          {
+            "id": "593dc0e4be82d556",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 403.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "omnisearch:Omnisearch": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "593dc0e4be82d556",
+  "lastOpenFiles": [
+    "website/script.js.md",
+    "website/README.md",
+    "website/style.css",
+    "website/script.js",
+    "website/index.html",
+    "website/notesManifest.js",
+    "website/style.css.md",
+    "website/notesManifest.js.md",
+    "website/index.html.md",
+    "Termonology/Termonology.md",
+    "website",
+    "Enumaration/Enumeration.md",
+    "Resources to be refactored/gobuster/Gobuster cheat sheet.md",
+    "Resources to be refactored/Linux/Linux Learning Cheat Sheet.md",
+    "Resources to be refactored/Linux/learn linux in 30 days.md",
+    "Privilege Escalation/Privilege Escalation.md",
+    "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
+    "Resources to be refactored",
+    "Resources to be refactored/Rev Eng/Radare2 CLI cheat-sheet.md",
+    "Protocols/SSH.md",
+    "Protocols",
+    "chinneese resources.md",
+    "Notes Format.md",
+    "Reverse Shells/Generic Linux.md",
+    "Privilege Escalation",
+    "Termonology/Code Languages/Code Languages.md",
+    "create a link.md",
+    "yt wordlist.md",
+    "Welcome.md",
+    "Pretext.md",
+    "Weekly Worksheet - LP3 (60 minutes).md",
+    "Untitled.base",
+    "Termonology/Code Languages",
+    "2026-04-22.md",
+    "Rev.md",
+    "GDB/Reverse Engineering with GDB.md"
+  ]
+}

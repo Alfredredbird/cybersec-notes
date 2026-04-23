@@ -1,0 +1,161 @@
+/* style.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #111;
+  color: #eee;
+}
+
+#app {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+
+#sidebar {
+  width: 280px;
+  background: #181818;
+  border-right: 1px solid #333;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+#sidebar h1 {
+  font-size: 1.1rem;
+  margin: 0 0 4px;
+}
+
+#search {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #111;
+  color: #eee;
+}
+
+#search:focus {
+  outline: 1px solid #4f9cff;
+}
+
+#search-results {
+  margin-top: 6px;
+  max-height: 160px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+}
+
+.search-result {
+  padding: 4px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background: #2a2a2a;
+}
+
+#tree {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.folder {
+  margin-top: 4px;
+}
+
+.folder-name {
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.folder-children {
+  margin-left: 12px;
+  margin-top: 2px;
+}
+
+.note-link {
+  display: block;
+  padding: 2px 0;
+  cursor: pointer;
+}
+
+.note-link:hover {
+  text-decoration: underline;
+}
+
+/* Main */
+
+#main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#breadcrumb {
+  padding: 10px 16px;
+  border-bottom: 1px solid #333;
+  background: #141414;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+#content {
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* Markdown content */
+
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+  color: #fff;
+}
+
+#content a {
+  color: #4f9cff;
+}
+
+#content pre {
+  background: #1b1b1b;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+#content code {
+  font-family: "Fira Code", monospace;
+}
+
+#content table {
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+
+#content th,
+#content td {
+  border: 1px solid #444;
+  padding: 4px 6px;
+}
+
+#content blockquote {
+  border-left: 3px solid #444;
+  margin: 8px 0;
+  padding-left: 8px;
+  color: #ccc;
+}
