@@ -1,7 +1,9 @@
 # Pretext
+
 Enumeration is the first initial steps to discover what is running on a target system.
 
 # Port Scanning
+
 Port scanning involves scanning an [[Termonology#IP|IP]] for open [[Termonology#Port|Ports]] to find vulnerabilities or what is running on it.
 We can use a tool called [[Tools#Nmap|Nmap]] to scan for ports.
 ```Bash
@@ -41,6 +43,7 @@ PORT     STATE SERVICE         VERSION
 ```
 
 # Directory Enumeration
+
 Directory enumeration can be done in various ways.
 The whole idea is to find and discover hidden files and directories on a website.
 We can use [[Tools#gobuster|gobuster]], [[Tools#dirbuster|dirbuster]], or [[Tools#ffuf|ffuf]] to enumerate. 
@@ -49,7 +52,6 @@ With this command, we not only scan for directories, but we also make an attempt
 ```Bash
 gobuster dir -u http://192.168.x.x -w /usr/share/wordlists/directorylist.txt -t 100 -x json,php,txt
 ```
-## Quick Reference Table
 
 | Mode  | Command Example                         | Description                |
 | ----- | --------------------------------------- | -------------------------- |
@@ -77,6 +79,7 @@ http://192.168.x.x/subfolder/
 ```
 
 # Subdomains
+
 Subdomains are a child part of a domain. 
 Example we can have `example.com` but a [[Termonology#subdomain|subdomain]] would be `admin.example.com`.
 The domain will still be `example.com` but `admin.example.com` will be the [[Termonology#subdomain|subdomain]].
@@ -87,6 +90,7 @@ ffuf -u http://FUZZ.example.com -w wordlist.txt -mc 200
 `-mc 200` will only show [[Termonology#subdomain|subdomains]] that return a `200` status code. 
 
 # WordPress Scanning
+
 Enumerating WordPress can be great for finding plugin and users on a word press instance. 
 The following command scans a target for basic details and makes an attempt to enumerate users.
 ```Bash
@@ -94,6 +98,7 @@ wpscan --url (target) -e u
 ```
 
 # Exploit Searching
+
 After doing a simple [[Tools#Nmap|Nmap]] scan it's best to do an exploit search. 
 You can use [[Tools#Searchsploit|Searchsploit]] or the [exploit-db](https://www.exploit-db.com/).
 ```Bash

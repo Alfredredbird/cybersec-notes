@@ -1,7 +1,9 @@
 # Pretext
+
 A basic intro and information on [[Tools#Reverse Engineering|Radare2]]
 
 # Auto Analysis
+
 We can have [[Tools#Reverse Engineering|Radare2]] analyze our binary. 
 It's best to do [[Reverse Engineering#Quick External Probes|Quick Probes]] before using [[Tools#Reverse Engineering|Radare2]].
 ```bash
@@ -18,6 +20,7 @@ r2 ./wrecked
  Every `-A` specifics the depth in which it should analyze with a max of `-AAA`.
 
 # Common Analysis Commands 
+
 These common commands can be ran from the inside of [[Tools#Reverse Engineering|Radare2]] after analysis.
 
 | Command | Description                                    |
@@ -30,6 +33,7 @@ These common commands can be ran from the inside of [[Tools#Reverse Engineering|
 | oo+     | `open file for writing (if you plan to patch)` |
 
 # Analysis Workflow Commands
+
 Analysis workflow commands to disassemble and analyze.
 
 | Command    | Description                                    |
@@ -43,7 +47,7 @@ Analysis workflow commands to disassemble and analyze.
 | s main     | `seek to symbol "main`                         |
 | s entry0   | `seek to entry point`                          |
 
-Examples:
+>Examples:
 
 ```bash
 r2 -A ./wrecked
@@ -66,9 +70,9 @@ r2 -A ./wrecked
 │           0x00001222      c6853dffff..   mov byte [var_c3h], 0xa5
 │           0x00001229      48c78550ff..   mov qword [var_b0h], 0xb
 ```
----
 
 # Strings and Constants
+
 [[Tools#Radare2|Radare2]] has built in commands to simplify the exploration of strings and constants.
 
 | Command     | Description                       |
@@ -77,9 +81,8 @@ r2 -A ./wrecked
 | iz-password | `search strings matching pattern` |
 | izj         | `JSON output of strings`          |
 
----
-
 # Viewing bytes / hex / ascii
+
 There will come times when you need to dump some info into a format that is semi-readable.
 
 | Command       | Description                       |
@@ -108,9 +111,8 @@ Examples:
 0x00001221 0xa5ffffff3d85c6d5   ...=....
 ```
 
----
-
 # Renaming, Comments, and Cross-references
+
 Creating comments inside of [[Tools#Radare2|Radare2]].
 
 | Command                | Description                            |
@@ -125,9 +127,9 @@ Creating comments inside of [[Tools#Radare2|Radare2]].
 | axt (addr)             | `list xrefs to an address`             |
 | axf                    | `list xrefs from function`             |
 
----
+# Graphical and Visual Navigation
 
-# 7 — Graphical & visual navigation
+While [[Tools#Radare2|Radare2]] is a command line based tool, it does have some sort of UI and visual navigation.
 
 ```text
 V        # visual (text) mode — press ? for help
@@ -136,17 +138,26 @@ p        # in visual mode: 'p' cycle print modes (disasm/hex)
 :`q` to quit visual mode
 ```
 
----
+| Command | Description                      |
+| ------- | -------------------------------- |
+| V       | `visual (text) mode`             |
+| VV      | `visual graph mode`              |
+| p       | `cycle print modes (disasm/hex)` |
+| q       | `to quit`                        |
 
-# 8 — Decompilation (r2dec plugin)
+# Decompilation 
 
-r2 has plugins — r2dec is the most popular decompiler plugin. Install if missing:
+[[Tools#Radare2|Radare2]] has plugins that can be installed. 
+r2dec is one of the most popular decompiler plugins. 
+Install if missing:
 
 ```bash
-# install r2pm and r2dec (if not installed)
-r2pm -i r2dec   # run as user with r2pm installed
+r2pm -i r2dec
 ```
-
+You can also use the ghidra decompiler too.
+```bash
+r2pm -i r2ghidra-dec
+```
 Usage inside r2:
 
 ```text
@@ -155,109 +166,56 @@ pdc          # decompile with default decompiler (if available)
 pddj @ main  # decompile to JSON (if plugin supports)
 ```
 
-> Note: r2dec output is best-effort. Always cross-check with `pdf` disassembly.
+| Command     | Description                            |
+| ----------- | -------------------------------------- |
+| pdd @ main  | `decompile current function with r2de` |
+| pdc         | `decompile with default decompiler`    |
+| pddj @ main | `decompile to JSON`                    |
 
----
+> Note: r2dec output is best effort. Always cross-check with [[Radare2#Analysis Workflow Commands|pdf]] disassembly.
 
-# 9 — Debugging with radare2
+# Debugging With Radare2
 
+Common debugging commands for patching and learning.
+
+| Command     | Description                                   |
+| ----------- | --------------------------------------------- |
+| db 0x400123 | `set breakpoint at address`                   |
+| db sym.main | `set breakpoint at symbol (if symbol exists)` |
+| dc          | `continue`                                    |
+| ds          | `step into`                                   |
+| dso         | `step over`                                   |
+| dr          | `print registers`                             |
+| dr rip=@rip | `show RIP`                                    |
+| dps         | `print stack`                                 |
+| dpt         | `print top of stack value`                    |
+
+# Exporting and Scripting
+
+There are many ways you can script with [[Tools#Radare2|Radare2]] however these are simple examples.
 ```bash
-# launch under debugger
-r2 -d ./wrecked
-# inside r2 debug session:
-db 0x400123   # set breakpoint at address
-db sym.main    # set breakpoint at symbol (if symbol exists)
-dc            # continue
-ds            # step into
-dso           # step over
-dr            # print registers
-dr rip=@rip   # show RIP
-dps           # print stack
-dpt           # print top of stack value
-```
+r2 -qc 'aaa; agfj' ./wrecked > funcs.json
 
----
-
-# 10 — Searching / signatures / patterns
-
-```text
-/?pattern        # search for asm pattern or bytes at current location
-/ x <hexpattern> # search bytes across binary
-/ cmd ~ mov      # search for mnemonic 'mov'
-/ R type         # search for ROP gadgets? (use rabin2/capstone or ROPgadget externally)
-```
-
----
-
-# 11 — Patching (edit bytes) — **use with extreme caution**
-
-```text
-# write bytes (hex) at current address:
-wx 9090 @ 0x401234   # write two NOPs at address
-
-# assemble and write instruction(s):
-wa jmp 0x401300      # assemble 'jmp 0x401300' and write it
-```
-
-To save patched file: you can write changes to a new file (verify with docs / your r2 version):
-
-```text
-# inside r2
-w <newfile>   # write modified file (double-check this on your r2 build)
-```
-
-> Always keep an original backup. Patching is destructive.
-
----
-
-# 12 — Exporting & scripting
-
-```bash
-# export analysis to JSON
-r2 -qc 'aaa; agfj' ./wrecked > funcs.json   # graph JSON (agfj) after analysis
-
-# use radare2 in scripts (r2pipe exists for Python/Node)
+# use radare2 in scripts
 python3 -c "import r2pipe; r=r2pipe.open('wrecked'); print(r.cmd('afl'))"
 ```
 
----
+# Useful External Tools
 
-# 13 — Useful external tools to pair with r2
+Useful tools that are useful for working with [[Tools#Radare2|Radare2]].
 
-- `rabin2` — metadata, symbols: `rabin2 -I wrecked`, `rabin2 -s wrecked`
-    
-- `objdump -d -M intel wrecked` — alternative disassembly
-    
-- `strings`, `hexdump`, `xxd`, `readelf`, `ldd`
-    
-- `gdb` or `gef/pwndbg` for heavy interactive debugging (can attach to same binary)
-    
+| Command                                       | Description               |
+| --------------------------------------------- | ------------------------- |
+| `rabin2`                                      | `metadata, symbol`        |
+| `objdump`                                     | `alternative disassembly` |
+| `strings`, `hexdump`, `xxd`, `readelf`, `ldd` | `usefull for strings`     |
+| `gdb`                                         | `interactive debugging`   |
 
----
+# Handy One-liners
 
-# 14 — Example quick checklist for initial reversing
-
-1. `file wrecked` / `rabin2 -I wrecked` / `readelf -h wrecked`
-    
-2. `r2 -A ./wrecked`
-    
-3. `iS` / `ii` / `iz` — inspect sections, imports, strings
-    
-4. `afl` — list functions
-    
-5. `s main` → `pdf` / `pdd` — read main in disasm and decompiled C
-    
-6. set breakpoints & run under `r2 -d` if runtime behavior needed
-    
-7. search for suspicious strings or crypto keys with `iz~` and for syscalls with `pd`/`/ syscall`
-    
-
----
-
-# 15 — Handy one-liners
-
+Super handy one-liners that are quite useful.
 ```bash
-# open, jump to main and print decompiled C quickly:
+# open, jump to main and print decompiled quickly:
 r2 -qc 'aaa; s sym.main; pdd' ./wrecked
 
 # list functions with sizes:
@@ -268,20 +226,3 @@ rabin2 -z wrecked | grep -i 'flag\|password'
 # or inside r2:
 r2 -qc 'aaa; iz~flag' ./wrecked
 ```
-
----
-
-# 16 — Further learning / tips
-
-- Learn `aaa`, `af*`, `pdf`, `pd`, `s`, `iz` — those cover 80% of day-to-day tasks.
-    
-- Use `V`/`VV` visual mode for graph exploration.
-    
-- Install `r2dec` (`r2pm -i r2dec`) to get readable C-like output (`pdd`).
-    
-- Combine radare2 + r2pipe (Python) to automate repetitive tasks.
-    
-
----
-
-

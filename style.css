@@ -1,37 +1,49 @@
-/* =========================
-   Base / Reset
-========================= */
+/* ========== Base ========== */
 
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: var(--font-interface-theme);
-  background: var(--background);
-  color: var(--text-normal);
-  -webkit-font-smoothing: antialiased;
+:root {
+  --bg: #f6f1e6;          /* warm cream */
+  --panel: #e9e2d3;       /* sand panel */
+  --panel-2: #dcd3c2;
+  --text: #1f2a2e;        /* deep ocean ink */
+  --muted: #5b6b73;
+  --accent: #2f7f86;      /* sea teal */
+  --accent-soft: #a9d6d2; /* foam */
+  --border: rgba(31, 42, 46, 0.12);
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* =========================
-   App Layout
-========================= */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #f7f2e7, #efe6d6);
+  color: var(--text);
+}
+
+/* Prevent layout shift when content loads */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ========== Layout ========== */
 
 #app {
   display: flex;
   height: 100vh;
-  overflow: hidden;
+  width: 100%;
 }
 
-/* =========================
-   Sidebar
-========================= */
+/* ========== Sidebar ========== */
 
 #sidebar {
-  width: 290px;
-  background: var(--background);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  width: 300px;
+  background: rgba(233, 226, 211, 0.85);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid var(--border);
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -42,56 +54,49 @@ body {
 #sidebar h1 {
   font-size: 1.1rem;
   margin: 0 0 6px;
-  color: var(--text-accent);
+  color: var(--text);
   letter-spacing: 0.3px;
 }
 
 /* Search */
-
 #search {
   width: 100%;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-normal);
-  transition: 0.15s ease;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text);
+  transition: 0.2s ease;
 }
 
 #search:focus {
   outline: none;
-  border-color: var(--interactive-accent);
-  box-shadow: 0 0 0 2px rgba(var(--rose-rgb), 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(47, 127, 134, 0.15);
 }
 
 /* Search results */
-
 #search-results {
-  margin-top: 6px;
+  margin-top: 8px;
   max-height: 180px;
   overflow-y: auto;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .search-result {
   padding: 6px 8px;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.15s ease;
-  color: var(--text-muted);
 }
 
 .search-result:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-normal);
+  background: rgba(47, 127, 134, 0.12);
 }
 
-/* =========================
-   Tree Navigation
-========================= */
-
+/* Tree */
 #tree {
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: 0.9rem;
 }
 
@@ -105,20 +110,17 @@ body {
   user-select: none;
   padding: 4px 6px;
   border-radius: 6px;
-  color: var(--text-normal);
-  transition: 0.15s ease;
 }
 
 .folder-name:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-accent);
+  background: rgba(47, 127, 134, 0.08);
 }
 
 .folder-children {
-  margin-left: 12px;
+  margin-left: 14px;
   margin-top: 4px;
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-  padding-left: 8px;
+  border-left: 1px dashed var(--border);
+  padding-left: 10px;
 }
 
 .note-link {
@@ -126,47 +128,50 @@ body {
   padding: 4px 6px;
   border-radius: 6px;
   cursor: pointer;
-  color: var(--text-muted);
-  transition: 0.15s ease;
+  color: var(--muted);
 }
 
 .note-link:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-normal);
+  background: rgba(47, 127, 134, 0.10);
+  color: var(--text);
 }
 
-/* =========================
-   Main Content
-========================= */
+/* ========== Main Area ========== */
 
 #main {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background: var(--bg);
 }
 
+/* Breadcrumb (sticky feel + stable spacing) */
 #breadcrumb {
-  padding: 10px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(0, 0, 0, 0.15);
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--muted);
 }
 
-/* Content area */
-
+/* Content (FIXED spacing + loading stability) */
 #content {
-  padding: 20px 26px;
+  flex: 1;
+  padding: 24px 28px;
   overflow-y: auto;
-  line-height: 1.65;
-  font-size: 0.95rem;
-  max-width: 900px;
+
+  /* prevents “jumping” when markdown loads */
+  min-height: 0;
 }
 
-/* =========================
-   Markdown Styling
-========================= */
+/* Optional: smoother load feel */
+#content * {
+  scroll-margin-top: 80px;
+}
+
+/* ========== Markdown ========== */
 
 #content h1,
 #content h2,
@@ -174,17 +179,19 @@ body {
 #content h4,
 #content h5,
 #content h6 {
-  color: var(--text-normal);
+  color: var(--text);
   margin-top: 1.2em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 
-#content h1 { font-size: 1.8rem; }
-#content h2 { font-size: 1.4rem; }
-#content h3 { font-size: 1.2rem; }
+#content p {
+  line-height: 1.6;
+  margin: 0.6em 0;
+  color: var(--text);
+}
 
 #content a {
-  color: var(--text-accent);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -192,48 +199,42 @@ body {
   text-decoration: underline;
 }
 
-/* Code */
-
+/* Code blocks */
 #content pre {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(31, 42, 46, 0.06);
   padding: 12px;
   border-radius: 10px;
   overflow-x: auto;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
 }
 
 #content code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.9em;
 }
 
 /* Tables */
-
 #content table {
   border-collapse: collapse;
-  margin: 10px 0;
+  margin: 12px 0;
   width: 100%;
-  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 #content th,
 #content td {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 6px 8px;
+  border: 1px solid var(--border);
+  padding: 8px 10px;
 }
 
-#content th {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-normal);
-}
-
-/* Blockquotes */
-
+/* Blockquote (ocean depth feel) */
 #content blockquote {
-  border-left: 3px solid var(--interactive-accent);
-  margin: 10px 0;
-  padding: 8px 12px;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+  margin: 12px 0;
+  padding: 10px 14px;
+  color: var(--muted);
+  background: rgba(47, 127, 134, 0.06);
+  border-radius: 8px;
 }
