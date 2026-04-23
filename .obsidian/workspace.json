@@ -181,7 +181,8 @@
               "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -201,19 +202,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "12ccc029f01ff2d3",
+  "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
     "Reverse Engenering/tools/GDB.md",
+    "Reverse Engenering/tools/Radare2.md",
+    "Termonology/Tools/Tools.md",
+    "Termonology/Termonology.md",
     "Resources to be refactored/GDB/Reverse Engineering with GDB.md",
     "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
-    "Reverse Engenering/tools/Radare2.md",
     "Reverse Engenering/Resources.md",
     "Reverse Engenering/Reverse Engineering.md",
     "Reverse Shells/Generic Linux.md",
     "Termonology/Commands/Code Commands.md",
-    "Termonology/Termonology.md",
     "Enumaration/Enumeration.md",
-    "Termonology/Tools/Tools.md",
     "Termonology/Commands",
     "Protocols/SSH.md",
     "Privilege Escalation/Privilege Escalation.md",

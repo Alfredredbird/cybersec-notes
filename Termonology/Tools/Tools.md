@@ -22,3 +22,5 @@ A popular tool for web based login attacks.
 # Reverse Engineering 
 ## Radare2
 A popular command line based reverse engineering tool.
+## GDB
+The gnu debugger.
