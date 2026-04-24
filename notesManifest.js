@@ -37,6 +37,14 @@ const NOTES = [
     path: "OSINT/Types/Social Media OSINT.md",
     folder: "OSINT/Types"
   },
+    {
+    id: "osint",
+    title: "OSINT",
+    wikiName: "OSINT",
+    path: "OSINT/OSINT.md",
+    folder: "OSINT"
+  },
+  
   
 
   // Linux

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSINT/Types/Social Media OSINT.md",
+                "file": "OSINT/OSINT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Social Media OSINT"
+              "title": "OSINT"
             }
           }
         ]
@@ -202,11 +202,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4c640d3215b6cbde",
+  "active": "55934392285598ad",
   "lastOpenFiles": [
+    "OSINT/Types/Social Media OSINT.md",
     "Termonology/Tools/Tools.md",
     "Privilege Escalation/Privilege Escalation.md",
-    "OSINT/Types/Social Media OSINT.md",
     "OSINT/OSINT.md",
     "OSINT/Types",
     "Protocols/SSH.md",
