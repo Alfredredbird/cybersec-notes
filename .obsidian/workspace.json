@@ -11,12 +11,14 @@
             "id": "4c640d3215b6cbde",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Images/osintimage1.jpg"
+                "file": "OSINT/Types/Geolocation.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "osintimage1"
+              "icon": "lucide-file",
+              "title": "Geolocation"
             }
           }
         ]
@@ -202,8 +204,11 @@
   },
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
-    "OSINT/OSINT.md",
+    "OSINT/Types/Other OSINT.md",
     "OSINT/Types/Geolocation.md",
+    "OSINT/OSINT.md",
+    "Images/powerlines.png",
+    "OSINT/Types/People OSINT.md",
     "Images/osintimage1.jpg",
     "Images/osintimage2.jpg",
     "Images/osintimage3.png",
@@ -231,8 +236,6 @@
     "Stenography",
     "Reverse Engenering/tools/GDB.md",
     "Reverse Engenering/tools/Radare2.md",
-    "Resources to be refactored/GDB/Reverse Engineering with GDB.md",
-    "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
     "Termonology/Commands",
     "Termonology/Tools",
     "Reverse Engenering/tools",

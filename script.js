@@ -46,9 +46,9 @@ function renderBreadcrumb(note) {
 // Convert Obsidian-style ![[image.ext]] embeds to <img> tags
 function replaceImageEmbeds(markdown) {
   return markdown.replace(/!\[\[([^\]]+)\]\]/g, (match, filename) => {
-    // Strip any path prefix Obsidian may have stored, keep only the bare filename
+    // Strip any path prefix Obsidian may have stored, keep only the filename
     const name = filename.split("/").pop().split("\\").pop();
-    return `<img src="Images/${name}" alt="${name}" style="max-width:100%;border-radius:6px;margin:1rem 0;display:block;" />`;
+    return `<img src="Images/${name}" alt="${name}" style="max-width:100%;border-radius:6px;" />`;
   });
 }
 

@@ -23,8 +23,10 @@ When it comes to reverse image searching, we want to narrow down our points to s
 `The Triad` is what I like to call our final point markup. To make the triad, you simply need to draw a triangle from each point that we used as a marker. Does it have to be a triangle, no. There is no need to do this but it looks cool.
 ![[osintimage3.png]]
 The image was taken at `51.50976, -0.05736`.
-# Power Lines 
+# Power Lines and Electrical infrastructure.
 
+From the previous example, we know where the photo was taken. So by putting the location into [OpenInfrastructure](https://openinframap.org/#17.01/51.509408/-0.055146) we can see what electrical infrastructure is around. Now unfortunately  the UK does not have much public data about the power lines.
+![[powerlines.png]]
 # Sun Calculations
 
 # Coordinate Conversion

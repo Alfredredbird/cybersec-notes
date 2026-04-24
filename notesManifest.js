@@ -38,6 +38,13 @@ const NOTES = [
     folder: "OSINT/Types"
   },
    {
+    id: "othera-osint",
+    title: "Other OSINT",
+    wikiName: "Other OSINT",
+    path: "OSINT/Types/Other OSINT.md",
+    folder: "OSINT/Types"
+  },
+   {
     id: "geolocation-osint",
     title: "Geolocation OSINT",
     wikiName: "Geolocation OSINT",

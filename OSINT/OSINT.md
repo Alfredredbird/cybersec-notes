@@ -11,5 +11,6 @@ Please see [[Social Media OSINT|Here]]
 ## Geolocation
 Please see [[Geolocation|Here]]
 ## People OSINT
-## Vehicle OSINT
-## Domain and Website OSINT
+Please see [[People OSINT|Here]]
+
+## Other OSINT
