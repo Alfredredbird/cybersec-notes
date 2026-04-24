@@ -10,6 +10,68 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
+
+  <!-- ===== SPLASH SCREEN ===== -->
+  <div id="splash">
+    <div class="splash-bg"></div>
+
+    <div class="splash-waves">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="wave wave-1" d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"/>
+        <path class="wave wave-2" d="M0,75 C200,40 440,110 720,75 C1000,40 1240,110 1440,75 L1440,120 L0,120 Z"/>
+        <path class="wave wave-3" d="M0,90 C300,60 520,115 720,90 C920,65 1140,115 1440,90 L1440,120 L0,120 Z"/>
+      </svg>
+    </div>
+
+    <div class="splash-center">
+      <div class="wheel-wrap">
+        <svg class="ship-wheel" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="glow-strong" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="6" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <circle cx="100" cy="100" r="88" fill="none" stroke="#00c9b1" stroke-width="5" filter="url(#glow)" opacity="0.9"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#00c9b1" stroke-width="1.5" opacity="0.3"/>
+          <g stroke="#00c9b1" stroke-width="4" stroke-linecap="round" filter="url(#glow)" opacity="0.85">
+            <line x1="100" y1="100" x2="100" y2="16"/>
+            <line x1="100" y1="100" x2="100" y2="184"/>
+            <line x1="100" y1="100" x2="16"  y2="100"/>
+            <line x1="100" y1="100" x2="184" y2="100"/>
+            <line x1="100" y1="100" x2="143.6" y2="143.6"/>
+            <line x1="100" y1="100" x2="56.4"  y2="56.4"/>
+            <line x1="100" y1="100" x2="143.6" y2="56.4"/>
+            <line x1="100" y1="100" x2="56.4"  y2="143.6"/>
+          </g>
+          <g fill="#00c9b1" filter="url(#glow)">
+            <circle cx="100" cy="12"  r="5.5"/>
+            <circle cx="100" cy="188" r="5.5"/>
+            <circle cx="12"  cy="100" r="5.5"/>
+            <circle cx="188" cy="100" r="5.5"/>
+            <circle cx="143.6" cy="143.6" r="5.5"/>
+            <circle cx="56.4"  cy="56.4"  r="5.5"/>
+            <circle cx="143.6" cy="56.4"  r="5.5"/>
+            <circle cx="56.4"  cy="143.6" r="5.5"/>
+          </g>
+          <circle cx="100" cy="100" r="22" fill="#0c1829" stroke="#00c9b1" stroke-width="4" filter="url(#glow)" opacity="0.95"/>
+          <circle cx="100" cy="100" r="13" fill="none" stroke="#00c9b1" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="100" cy="100" r="5"  fill="#00c9b1" filter="url(#glow-strong)"/>
+        </svg>
+        <div class="wheel-glow-ring"></div>
+      </div>
+
+      <h1 class="splash-title">CYBER NOTES</h1>
+      <p class="splash-sub">Initialising…</p>
+      <div class="splash-bar-wrap"><div class="splash-bar"></div></div>
+    </div>
+  </div>
+  <!-- ===== END SPLASH ===== -->
+
   <div id="app">
     <aside id="sidebar">
       <h1>⬡ Cyber Notes</h1>

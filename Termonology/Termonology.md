@@ -28,6 +28,7 @@ we can have `example.com` as our domain but a subdomain would be `admin.example.
 # Commands
 
 See [[Code Commands]]
+See [[Linux Commands]]
 # Reverse Engineering
 
 # Basic Terms

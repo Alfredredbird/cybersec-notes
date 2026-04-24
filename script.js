@@ -218,14 +218,64 @@ async function handleSearchInput() {
   }
 }
 
+// --- Mobile sidebar toggle ------------------------------------
+
+function initMobileMenu() {
+  const menuBtn = document.getElementById("menu-toggle");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebar-overlay");
+  if (!menuBtn || !sidebar || !overlay) return;
+
+  function openSidebar() {
+    sidebar.classList.add("open");
+    overlay.classList.add("visible");
+    menuBtn.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("visible");
+    menuBtn.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.contains("open") ? closeSidebar() : openSidebar();
+  });
+
+  overlay.addEventListener("click", closeSidebar);
+
+  treeEl.addEventListener("click", (e) => {
+    if (e.target.classList.contains("note-link") && window.innerWidth <= 768) {
+      closeSidebar();
+    }
+  });
+}
+
+// --- Splash screen --------------------------------------------
+
+function dismissSplash() {
+  const splash = document.getElementById("splash");
+  if (!splash) return;
+  // Bar animation is 1.8s + 0.3s delay; wait a beat after it finishes
+  setTimeout(() => {
+    splash.classList.add("hidden");
+    splash.addEventListener("transitionend", () => splash.remove(), { once: true });
+  }, 2200);
+}
+
 // --- Init -----------------------------------------------------
 
 function init() {
   renderTree();
   searchInput.addEventListener("input", handleSearchInput);
+  initMobileMenu();
 
   const defaultNote = NOTES[0];
   if (defaultNote) loadNote(defaultNote);
+
+  dismissSplash();
 }
 
 init();

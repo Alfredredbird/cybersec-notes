@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Termonology/Termonology.md",
+                "file": "Termonology/Commands/Linux Commands.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Termonology"
+              "title": "Linux Commands"
             }
           }
         ]
@@ -204,10 +204,10 @@
   },
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
-    "Termonology/Termonology.md",
-    "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
-    "Enumaration/Enumeration.md",
     "Termonology/Commands/Linux Commands.md",
+    "Termonology/Termonology.md",
+    "Enumaration/Enumeration.md",
+    "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
     "Termonology/Commands/Code Commands.md",
     "Termonology/Tools/Tools.md",
     "Privilege Escalation/Shells.md",

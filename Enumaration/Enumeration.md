@@ -171,4 +171,31 @@ rpcinfo -u <target> nfs
 ```
 
 # SMB Shares
+
+SMB shares are pretty similar to NFS when it comes to enumerating.
+We can try to do a quick un-authenticated session to grab shares if it's allowed.
+```Bash
+smbclient -L //192.168.x.x -N
+```
+- `-L` = list shares
+- `-N` = no password (null session)
+---
+If that does not work, we can enumerate with [[Code Commands#enum4linux|enum4linux]].
+```Bash
+enum4linux -a 192.168.x.x
+```
+It tries to pull:
+- Users
+- Shares
+- Groups
+- Policies
+---
+[[Linux Commands#smbmap|smbmap]] can also enumerate for share permissions.
+```Bash
+smbmap -H 192.168.x.x
+```
+It might show:
+- Share permissions 
+- Accessible paths
+
 # Active Directory

@@ -98,6 +98,13 @@ const NOTES = [
     path: "Reverse Shells/Generic Linux.md",
     folder: "Reverse Shells"
   },
+  {
+    id: "shells",
+    title: "Shells",
+    wikiName: "Shells",
+    path: "Privilege Escalation/Shellss.md",
+    folder: "Privilege Escalation"
+  },
 
   // Terminology
   {
@@ -112,6 +119,13 @@ const NOTES = [
     title: "Code Commands",
     wikiName: "Code Commands",
     path: "Termonology/Commands/Code Commands.md",
+    folder: "Termonology/Commands"
+  },
+    {
+    id: "linux-commands",
+    title: "Linux Commands",
+    wikiName: "Code Commands",
+    path: "Termonology/Commands/Linux Commands.md",
     folder: "Termonology/Commands"
   },
   {
