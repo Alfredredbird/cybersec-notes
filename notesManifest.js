@@ -23,13 +23,7 @@ const NOTES = [
     path: "Enumaration/Enumeration.md",
     folder: "Enumaration"
   },
-  {
-    id: "nfs-share-enum",
-    title: "NFS & Share Enumeration",
-    wikiName: "NFS & Share Enumeration",
-    path: "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
-    folder: "Resources to be refactored"
-  },
+  
 
   // Linux
   {
@@ -102,7 +96,7 @@ const NOTES = [
     id: "shells",
     title: "Shells",
     wikiName: "Shells",
-    path: "Privilege Escalation/Shellss.md",
+    path: "Privilege Escalation/Shells.md",
     folder: "Privilege Escalation"
   },
 

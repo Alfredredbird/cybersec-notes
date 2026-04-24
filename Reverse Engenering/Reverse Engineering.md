@@ -12,3 +12,14 @@ readelf -s wrecked    # symbol table
 ldd ./wrecked          # dynamic libs (if runnable on your system)
 strings wrecked | less  # obvious strings
 ```
+
+# Tool Guids
+
+## Radare2
+[[Radare2]] tool guide.
+## GDB
+[[GDB]] tool guide.
+
+# Learning Resources
+
+Please view [[Resources]]

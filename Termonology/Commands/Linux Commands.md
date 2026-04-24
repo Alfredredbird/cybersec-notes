@@ -8,4 +8,4 @@ A linux command to interact with network file system mounts.
 ## enum4linux
 A Linux command to enumerate SMB shares.
 ## smbmap
-siA Linux command to enumerate SMB shares.
+A Linux command to enumerate SMB shares.

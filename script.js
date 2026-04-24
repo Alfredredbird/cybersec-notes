@@ -61,7 +61,7 @@ function replaceWikiLinks(markdown) {
 }
 
 function addHeadingIds(container) {
-  container.querySelectorAll("h1,h2,h3,h4,h5,h6").forEach((h) => {
+  (container || contentEl).querySelectorAll("h1,h2,h3,h4,h5,h6").forEach((h) => {
     if (!h.id) h.id = slugify(h.textContent);
   });
 }
@@ -102,14 +102,25 @@ async function loadNote(note, headingSlug = null) {
 
   const withWiki = replaceWikiLinks(md);
   const html     = marked.parse(withWiki);
-  contentEl.innerHTML = html;
-  addHeadingIds(contentEl);
-  wireWikiLinks();
+
+  // Wrap in .prose so the column centres without breaking pre overflow
+  const prose = document.createElement("div");
+  prose.className = "prose";
+  prose.innerHTML = html;
+  contentEl.innerHTML = "";
+  contentEl.appendChild(prose);
+
+  addHeadingIds(prose);
+  wireWikiLinks(prose);
   if (headingSlug) scrollToHeading(headingSlug);
+
+  // Sync URL hash without pushing a new history entry
+  history.replaceState(null, "", "#" + note.id);
 }
 
-function wireWikiLinks() {
-  contentEl.querySelectorAll(".wikilink").forEach((link) => {
+function wireWikiLinks(container) {
+  container = container || contentEl;
+  container.querySelectorAll(".wikilink").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const noteId  = link.getAttribute("data-note-id");
@@ -253,12 +264,32 @@ function initMobileMenu() {
   });
 }
 
+// --- Hash routing ---------------------------------------------
+
+function noteFromHash() {
+  const hash = window.location.hash.slice(1); // strip leading #
+  if (!hash) return null;
+  // Try exact id match first, then slug/title match
+  return (
+    NOTES.find((n) => n.id === hash) ||
+    NOTES.find((n) => n.wikiName.toLowerCase() === hash.toLowerCase()) ||
+    NOTES.find((n) => n.title.toLowerCase().replace(/\s+/g, "-") === hash.toLowerCase())
+  );
+}
+
+function initHashRouting() {
+  // On back/forward navigation update the loaded note
+  window.addEventListener("hashchange", () => {
+    const note = noteFromHash();
+    if (note) loadNote(note);
+  });
+}
+
 // --- Splash screen --------------------------------------------
 
 function dismissSplash() {
   const splash = document.getElementById("splash");
   if (!splash) return;
-  // Bar animation is 1.8s + 0.3s delay; wait a beat after it finishes
   setTimeout(() => {
     splash.classList.add("hidden");
     splash.addEventListener("transitionend", () => splash.remove(), { once: true });
@@ -271,9 +302,11 @@ function init() {
   renderTree();
   searchInput.addEventListener("input", handleSearchInput);
   initMobileMenu();
+  initHashRouting();
 
-  const defaultNote = NOTES[0];
-  if (defaultNote) loadNote(defaultNote);
+  // Honour the URL hash on first load; fall back to first note
+  const startNote = noteFromHash() || NOTES[0];
+  if (startNote) loadNote(startNote);
 
   dismissSplash();
 }
