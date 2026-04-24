@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "OSINT/Types/Social Media OSINT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Social Media OSINT"
             }
           }
         ]
@@ -33,12 +33,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Privilege Escalation/Privilege Escalation.md",
+                "file": "Termonology/Tools/Tools.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Privilege Escalation"
+              "title": "Tools"
             }
           }
         ]
@@ -204,19 +204,23 @@
   },
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
+    "Termonology/Tools/Tools.md",
+    "Privilege Escalation/Privilege Escalation.md",
+    "OSINT/Types/Social Media OSINT.md",
+    "OSINT/OSINT.md",
+    "OSINT/Types",
+    "Protocols/SSH.md",
+    "README.md",
+    "Resources to be refactored/Linux/Linux Learning Cheat Sheet.md",
     "chinneese resources.md",
     "Volatility/Volatility.md",
-    "Privilege Escalation/Privilege Escalation.md",
     "Enumaration/Enumeration.md",
     "Termonology/Termonology.md",
-    "Resources to be refactored/Linux/Linux Learning Cheat Sheet.md",
-    "Protocols/SSH.md",
     "Reverse Engenering/Resources.md",
     "Reverse Engenering/Reverse Engineering.md",
     "Termonology/Commands/Linux Commands.md",
     "Resources to be refactored/NFS Enumeration and Share Enumeration.md",
     "Termonology/Commands/Code Commands.md",
-    "Termonology/Tools/Tools.md",
     "Privilege Escalation/Shells.md",
     "Reverse Shells/Untitled.md",
     "Stenography/Stenography.md",
@@ -231,14 +235,10 @@
     "Termonology/Tools",
     "Reverse Engenering/tools",
     "Resources to be refactored/Rev Eng/Reverse Engineering Learning Roadmap.md",
-    "website/script.js.md",
-    "website/README.md",
     "website/style.css",
     "website/script.js",
     "website/index.html",
     "website/notesManifest.js",
-    "website/style.css.md",
-    "website",
-    "Resources to be refactored"
+    "website"
   ]
 }

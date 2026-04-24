@@ -33,3 +33,10 @@ A Stenography tool to hide images and documents inside of a JPEG.
 A bruteforce tool to crack a steghide file.
 ## Binwalk
 A tool to detect possible hidden files in a file.
+
+# OSINT
+
+## Sherlock
+A username scanner.
+## Tookie-osint
+Same as sherlock just better and was made by me haha.

@@ -30,6 +30,13 @@ const NOTES = [
     path: "Enumaration/Enumeration.md",
     folder: "Enumaration"
   },
+  {
+    id: "social-media-osint",
+    title: "Social Media OSINT",
+    wikiName: "Social Media OSINT",
+    path: "OSINT/Types/Social Media OSINT.md",
+    folder: "OSINT/Types"
+  },
   
 
   // Linux
