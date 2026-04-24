@@ -202,12 +202,17 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "55934392285598ad",
+  "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
+    "OSINT/Types/Geolocation.md",
+    "OSINT/OSINT.md",
+    "Images/osintimage1.jpg",
+    "Images/osintimage2.jpg",
+    "Images/osintimage3.png",
+    "Images",
     "OSINT/Types/Social Media OSINT.md",
     "Termonology/Tools/Tools.md",
     "Privilege Escalation/Privilege Escalation.md",
-    "OSINT/OSINT.md",
     "OSINT/Types",
     "Protocols/SSH.md",
     "README.md",
@@ -230,15 +235,12 @@
     "Reverse Engenering/tools/Radare2.md",
     "Resources to be refactored/GDB/Reverse Engineering with GDB.md",
     "Resources to be refactored/GDB/GNU Debugger Cheatsheet.md",
-    "Reverse Shells/Generic Linux.md",
     "Termonology/Commands",
     "Termonology/Tools",
     "Reverse Engenering/tools",
-    "Resources to be refactored/Rev Eng/Reverse Engineering Learning Roadmap.md",
     "website/style.css",
     "website/script.js",
     "website/index.html",
-    "website/notesManifest.js",
-    "website"
+    "website/notesManifest.js"
   ]
 }
