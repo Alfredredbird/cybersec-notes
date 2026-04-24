@@ -1,13 +1,13 @@
 // script.js
 
-const contentEl     = document.getElementById("content");
-const breadcrumbEl  = document.getElementById("breadcrumb");
-const treeEl        = document.getElementById("tree");
-const searchInput   = document.getElementById("search");
+const contentEl      = document.getElementById("content");
+const breadcrumbEl   = document.getElementById("breadcrumb");
+const treeEl         = document.getElementById("tree");
+const searchInput    = document.getElementById("search");
 const searchResultsEl = document.getElementById("search-results");
 
 const noteCache = new Map(); // path -> markdown text
-let activeNoteId  = null;
+let activeNoteId = null;
 
 // --- Helpers --------------------------------------------------
 
@@ -41,6 +41,15 @@ function renderBreadcrumb(note) {
       ? `<span>${p}</span>`
       : `${p} <span style="color:var(--border-mid)">›</span> `)
     .join("");
+}
+
+// Convert Obsidian-style ![[image.ext]] embeds to <img> tags
+function replaceImageEmbeds(markdown) {
+  return markdown.replace(/!\[\[([^\]]+)\]\]/g, (match, filename) => {
+    // Strip any path prefix Obsidian may have stored, keep only the bare filename
+    const name = filename.split("/").pop().split("\\").pop();
+    return `<img src="Images/${name}" alt="${name}" style="max-width:100%;border-radius:6px;margin:1rem 0;display:block;" />`;
+  });
 }
 
 // Convert Obsidian-style [[Note#Heading|Label]] links to HTML anchors
@@ -100,8 +109,10 @@ async function loadNote(note, headingSlug = null) {
     noteCache.set(note.path, md);
   }
 
-  const withWiki = replaceWikiLinks(md);
-  const html     = marked.parse(withWiki);
+  // Process image embeds FIRST, then wiki links — order matters
+  const withImages = replaceImageEmbeds(md);
+  const withWiki   = replaceWikiLinks(withImages);
+  const html       = marked.parse(withWiki);
 
   // Wrap in .prose so the column centres without breaking pre overflow
   const prose = document.createElement("div");

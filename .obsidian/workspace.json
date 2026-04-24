@@ -11,14 +11,12 @@
             "id": "4c640d3215b6cbde",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "OSINT/OSINT.md",
-                "mode": "source",
-                "source": false
+                "file": "Images/osintimage1.jpg"
               },
-              "icon": "lucide-file",
-              "title": "OSINT"
+              "icon": "lucide-image",
+              "title": "osintimage1"
             }
           }
         ]
@@ -204,8 +202,8 @@
   },
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
-    "OSINT/Types/Geolocation.md",
     "OSINT/OSINT.md",
+    "OSINT/Types/Geolocation.md",
     "Images/osintimage1.jpg",
     "Images/osintimage2.jpg",
     "Images/osintimage3.png",
