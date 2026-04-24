@@ -12,5 +12,6 @@ Please see [[Social Media OSINT|Here]]
 Please see [[Geolocation|Here]]
 ## People OSINT
 Please see [[People OSINT|Here]]
-
 ## Other OSINT
+Please see [[Other OSINT|Here]]
+
