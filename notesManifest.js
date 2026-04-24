@@ -138,6 +138,20 @@ const NOTES = [
     folder: "Termonology"
   },
   {
+  id: "stenography",
+  title: "Stenography",
+  wikiName: "Stenography",
+  path: "Stenography/Stenography.md",
+  folder: "Stenography"
+},
+  {
+  id: "stenography",
+  title: "Stenography",
+  wikiName: "Stenography",
+  path: "Stenography/Stenography.md",
+  folder: "Stenography"
+},
+  {
     id: "code-commands",
     title: "Code Commands",
     wikiName: "Code Commands",
