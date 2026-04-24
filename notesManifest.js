@@ -1,5 +1,12 @@
 const NOTES = [
   // Root
+   {
+    id: "readme",
+    title: "Read Me",
+    wikiName: "Read Me",
+    path: "README.md",
+    folder: ""
+  },
   {
     id: "chinese-resources",
     title: "Chinese Resources",
@@ -140,9 +147,9 @@ const NOTES = [
   // Volatility
   {
     id: "volatility",
-    title: "Volatility Cheatsheet",
-    wikiName: "Volatility Cheatsheet",
-    path: "Volatility/Volatility Cheatsheet.md",
+    title: "Volatility",
+    wikiName: "Volatility",
+    path: "Volatility/Volatility.md",
     folder: "Volatility"
   }
 ];
