@@ -9,7 +9,7 @@ The required tools and methodology will be explained on the rightful page.
 ## Social Media OSINT
 Please see [[Social Media OSINT|Here]]
 ## Geolocation
-Please see [[Geolocation|Here]]
+Please see [[Geolocation OSINT|Here]]
 ## People OSINT
 Please see [[People OSINT|Here]]
 ## Domain OSINT

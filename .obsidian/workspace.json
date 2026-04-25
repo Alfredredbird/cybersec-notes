@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSINT/Types/Domain OSINT.md",
+                "file": "OSINT/OSINT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Domain OSINT"
+              "title": "OSINT"
             }
           }
         ]
@@ -204,14 +204,14 @@
   },
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
-    "Termonology/Termonology.md",
+    "OSINT/Types/Geolocation OSINT.md",
+    "OSINT/OSINT.md",
     "OSINT/Types/Domain OSINT.md",
+    "Termonology/Termonology.md",
     "Termonology/Tools/Tools.md",
     "Termonology/Commands/Linux Commands.md",
-    "OSINT/OSINT.md",
     "OSINT/Types/Other OSINT.md",
     "Reverse Engenering/tools/GDB.md",
-    "OSINT/Types/Geolocation.md",
     "Images/powerlines.png",
     "OSINT/Types/People OSINT.md",
     "Images/osintimage1.jpg",

@@ -38,7 +38,7 @@ const NOTES = [
     folder: "OSINT/Types"
   },
    {
-    id: "othera-osint",
+    id: "other-osint",
     title: "Other OSINT",
     wikiName: "Other OSINT",
     path: "OSINT/Types/Other OSINT.md",
@@ -49,6 +49,20 @@ const NOTES = [
     title: "Geolocation OSINT",
     wikiName: "Geolocation OSINT",
     path: "OSINT/Types/Geolocation.md",
+    folder: "OSINT/Types"
+  },
+   {
+    id: "domain-osint",
+    title: "Domain OSINT",
+    wikiName: "Domain OSINT",
+    path: "OSINT/Types/Domain OSINT.md",
+    folder: "OSINT/Types"
+  },
+    {
+    id: "people-osint",
+    title: "People OSINT",
+    wikiName: "People OSINT",
+    path: "OSINT/Types/People OSINT.md",
     folder: "OSINT/Types"
   },
     {

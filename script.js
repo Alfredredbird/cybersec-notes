@@ -1,7 +1,7 @@
 // script.js
 
 const contentEl      = document.getElementById("content");
-const breadcrumbEl   = document.getElementById("breadcrumb");
+const breadcrumbEl   = document.getElementById("breadcrumb-text");
 const treeEl         = document.getElementById("tree");
 const searchInput    = document.getElementById("search");
 const searchResultsEl = document.getElementById("search-results");

@@ -855,13 +855,20 @@ body::before {
 
 #sidebar-overlay.visible { opacity: 1; }
 
+/* Bigger touch targets for all interactive sidebar items */
+.note-link,
+.folder-name,
+.search-result {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media (max-width: 768px) {
   html, body { overflow: auto; }
 
   #app {
     flex-direction: column;
     height: auto;
-    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   #sidebar {
@@ -879,30 +886,50 @@ body::before {
     box-shadow: 4px 0 32px rgba(0, 0, 0, 0.5);
   }
 
-  #sidebar-overlay { display: block; }
+  #sidebar-overlay { display: block; pointer-events: none; }
+  #sidebar-overlay.visible { pointer-events: auto; }
 
   #main {
     width: 100%;
-    height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
   }
 
+  /* Breadcrumb: button + text side by side, sticky at top */
   #breadcrumb {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 16px;
+    padding: 10px 14px;
     position: sticky;
     top: 0;
     z-index: 10;
+    min-height: 52px;
   }
 
-  #menu-toggle { display: flex; }
+  #breadcrumb-text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-  #content { height: auto; overflow-y: visible; flex: none; }
+  #menu-toggle { display: flex; flex-shrink: 0; }
 
-  .prose { padding: 24px 16px 60px; max-width: 100%; }
+  /* Content scrolls with the page on mobile */
+  #content {
+    flex: 1;
+    overflow-y: visible;
+    height: auto;
+  }
+
+  .prose { padding: 24px 16px 80px; max-width: 100%; }
+
+  /* Larger touch targets in sidebar */
+  .note-link   { padding: 10px 10px; font-size: 0.88rem; }
+  .folder-name { padding: 10px 8px;  font-size: 0.75rem; }
+  .search-result { padding: 10px 10px; font-size: 0.85rem; }
 
   #content h1 { font-size: 1.55rem; }
   #content h2 { font-size: 1.15rem; }
@@ -911,6 +938,7 @@ body::before {
   #content pre { padding: 14px 14px 18px; }
   #content pre code { font-size: 0.78rem; }
 
+  /* Horizontally scrollable tables */
   #content table {
     display: block;
     overflow-x: auto;
@@ -918,10 +946,13 @@ body::before {
     width: max-content;
     max-width: 100%;
   }
+
+  /* Prevent text-size adjustment on orientation change */
+  body { -webkit-text-size-adjust: 100%; }
 }
 
 @media (max-width: 480px) {
   #sidebar  { width: 88vw; }
-  .prose    { padding: 18px 14px 60px; }
+  .prose    { padding: 18px 14px 80px; }
   #content h1 { font-size: 1.3rem; }
 }
