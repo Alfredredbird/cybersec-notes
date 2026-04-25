@@ -1,4 +1,5 @@
-<img width="600" height="600" alt="cyberkelp_logo" src="https://github.com/user-attachments/assets/f188f49b-cdf4-42c4-89a3-1a5a954b6c0e" />
+<img width="600" height="600" alt="cyberkelp_logo_nolines" src="https://github.com/user-attachments/assets/1953656c-1268-464e-9eb0-8f1d27e44ec3" />
+
 
 # Welcome to CyberKelp Cybersecurity Note Bank!
 # Info
