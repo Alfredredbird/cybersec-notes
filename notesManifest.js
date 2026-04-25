@@ -48,7 +48,7 @@ const NOTES = [
     id: "geolocation-osint",
     title: "Geolocation OSINT",
     wikiName: "Geolocation OSINT",
-    path: "OSINT/Types/Geolocation.md",
+    path: "OSINT/Types/Geolocation OSINT.md",
     folder: "OSINT/Types"
   },
    {
