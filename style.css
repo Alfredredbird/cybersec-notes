@@ -847,7 +847,6 @@ body::before {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(2px);
   z-index: 90;
   opacity: 0;
   transition: opacity 0.25s ease;
