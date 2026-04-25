@@ -9,6 +9,17 @@ Commands or tasks scheduled to run on a [[Termonology#Host|Host]] machine. Can b
 
 # IT
 
+# Hacking Skills
+
+## OSINT
+The study of Open Source Intelligence. 
+See [[OSINT]] for more info.
+## Reverse Engineering
+The study of reversing the logic of a binary or program.
+See [[Reverse Engineering]] for more info.
+## Privilege Escalation
+The skill of escalating our privileges from a user to the highest user, often root.
+See [[Privilege Escalation]] for more info.
 # Networking
 ## IP
 Internet Protocol.
@@ -24,7 +35,8 @@ The port number set up on your IP to listen for incoming/outgoing connections.
 The most common opensource [[SSH]] client/server.
 ## subdomain
 we can have `example.com` as our domain but a subdomain would be `admin.example.com`.
-
+## DNS
+Domain Name System. Used for telling a client how to connect to a website.
 # Commands
 
 See [[Code Commands]]

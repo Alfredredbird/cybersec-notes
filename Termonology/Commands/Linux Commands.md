@@ -11,3 +11,7 @@ A Linux command to enumerate SMB shares.
 A Linux command to enumerate SMB shares.
 ## whois
 Checks the whois database for data on a domain.
+## nslookup
+A tool to look through DNS records for a website.
+## host 
+A command to grab the host name of a domain.
