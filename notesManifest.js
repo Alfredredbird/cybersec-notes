@@ -58,6 +58,13 @@ const NOTES = [
     path: "OSINT/Types/Domain OSINT.md",
     folder: "OSINT/Types"
   },
+  {
+    id: "theharvester",
+    title: "TheHarvester",
+    wikiName: "TheHarvester",
+    path: "OSINT/Tools/TheHarvester.md",
+    folder: "OSINT/Tools"
+  },
     {
     id: "people-osint",
     title: "People OSINT",
@@ -101,7 +108,13 @@ const NOTES = [
     path: "Protocols/SSH.md",
     folder: "Protocols"
   },
-
+     {
+    id: "ftp",
+    title: "FTP",
+    wikiName: "FTP",
+    path: "Protocols/FTP.md",
+    folder: "Protocols"
+  },
   // Reverse Engineering
   {
     id: "rev-resources",

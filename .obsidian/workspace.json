@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Protocols/FTP.md",
+                "file": "OSINT/Tools/TheHarvester.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FTP"
+              "title": "TheHarvester"
             }
           }
         ]
@@ -205,12 +205,14 @@
   "active": "4c640d3215b6cbde",
   "lastOpenFiles": [
     "Termonology/Termonology.md",
+    "Termonology/Tools/Tools.md",
+    "OSINT/Tools/TheHarvester.md",
+    "Termonology/Commands/Linux Commands.md",
+    "OSINT/Tools",
     "Protocols/FTP.md",
     "OSINT/Types/Domain OSINT.md",
     "OSINT/OSINT.md",
     "OSINT/Types/Geolocation OSINT.md",
-    "Termonology/Tools/Tools.md",
-    "Termonology/Commands/Linux Commands.md",
     "OSINT/Types/Other OSINT.md",
     "Reverse Engenering/tools/GDB.md",
     "Images/powerlines.png",
@@ -234,15 +236,12 @@
     "Termonology/Commands/Code Commands.md",
     "Privilege Escalation/Shells.md",
     "Reverse Shells/Untitled.md",
-    "Stenography/Stenography.md",
-    "Notes Format.md",
     "Stenography",
     "Termonology/Commands",
     "Termonology/Tools",
     "Reverse Engenering/tools",
     "website/style.css",
     "website/script.js",
-    "website/index.html",
-    "website/notesManifest.js"
+    "website/index.html"
   ]
 }
