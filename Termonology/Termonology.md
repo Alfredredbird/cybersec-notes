@@ -51,6 +51,7 @@ The host machine.
 
 # Tools
 See [[Tools]]
+# Scripts
 
 # Penetration Testing
 ## Penetration Testing

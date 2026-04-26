@@ -29,6 +29,12 @@ Chinese Learning Resources.
 
 # In Process
 Currently I'm still in the early stages of formatting the pages and adding more depth, examples, and topics. These take quite a bit of time as I write these myself after doing some research.
+Notes in progress:
+- Privilege Escalation/Scripts/LinPeas
+- Terminology/Scripts/Scripts
+- Privilege Escalation/Privilege Escalation
+- Privilege Escalation/Shells
+- Protocols/HTTP
 
 # Contributing
 I'm not 100% sure how I will be handling contributors at the moment as I do enjoy writing this but you are more then welcome to submit pull requests with new information or bug fixes. 

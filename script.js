@@ -123,7 +123,7 @@ async function loadNote(note, headingSlug = null) {
 
   addHeadingIds(prose);
   wireWikiLinks(prose);
-  if (headingSlug) scrollToHeading(headingSlug);
+  if (headingSlug) requestAnimationFrame(() => scrollToHeading(headingSlug));
 
   // Sync URL hash without pushing a new history entry
   history.replaceState(null, "", "#" + note.id);

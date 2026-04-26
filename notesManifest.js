@@ -65,6 +65,13 @@ const NOTES = [
     path: "OSINT/Tools/TheHarvester.md",
     folder: "OSINT/Tools"
   },
+  {
+    id: "tookie-osint",
+    title: "Tookie-OSINT",
+    wikiName: "Tookie-OSINT",
+    path: "OSINT/Tools/Tookie-OSINT.md",
+    folder: "OSINT/Tools"
+  },
     {
     id: "people-osint",
     title: "People OSINT",
@@ -99,6 +106,13 @@ const NOTES = [
     path: "Privilege Escalation/Privilege Escalation.md",
     folder: "Privilege Escalation"
   },
+   {
+    id: "linpeas",
+    title: "LinPeas",
+    wikiName: "LinPeas",
+    path: "Privilege Escalation/LinPeas.md",
+    folder: "Privilege Escalation"
+  },
 
   // Protocols
   {
@@ -106,6 +120,13 @@ const NOTES = [
     title: "SSH",
     wikiName: "SSH",
     path: "Protocols/SSH.md",
+    folder: "Protocols"
+  },
+  {
+    id: "http",
+    title: "HTTP",
+    wikiName: "HTTP",
+    path: "Protocols/HTTP.md",
     folder: "Protocols"
   },
      {
@@ -167,7 +188,7 @@ const NOTES = [
   {
     id: "terminology",
     title: "Terminology",
-    wikiName: "Terminology",
+    wikiName: "Termonology",   // matches the spelling used in all wiki links
     path: "Termonology/Termonology.md",
     folder: "Termonology"
   },
@@ -205,6 +226,13 @@ const NOTES = [
     wikiName: "Code Languages",
     path: "Termonology/Code Languages/Code Languages.md",
     folder: "Termonology/Code Languages"
+  },
+    {
+    id: "scripts",
+    title: "Scripts",
+    wikiName: "Scripts",
+    path: "Termonology/Scripts/Scripts.md",
+    folder: "Termonology/Scripts"
   },
   {
     id: "tools-term",

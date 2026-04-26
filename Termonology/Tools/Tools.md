@@ -40,6 +40,7 @@ A tool to detect possible hidden files in a file.
 A username scanner.
 ## Tookie-osint
 Same as sherlock just better and was made by me haha.
+See the manual page here [[Tookie-OSINT]].
 ## TheHarvester
 A popular too for scraping search engines for emails.
 See [[TheHarvester]] for more.
