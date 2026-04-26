@@ -110,8 +110,8 @@ const NOTES = [
     id: "linpeas",
     title: "LinPeas",
     wikiName: "LinPeas",
-    path: "Privilege Escalation/LinPeas.md",
-    folder: "Privilege Escalation"
+    path: "Privilege Escalation/Scripts/LinPeas.md",
+    folder: "Privilege Escalation/Scripts"
   },
 
   // Protocols

@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 </head>
 <body>
 
@@ -86,12 +87,48 @@
       <header id="breadcrumb">
         <button id="menu-toggle" aria-label="Toggle navigation"><span></span></button>
         <span id="breadcrumb-text">~/cyber-kelp</span>
+        <button id="graph-toggle" aria-label="Graph view" title="Graph View">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+            <circle cx="10" cy="4"  r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="3"  cy="16" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17" cy="16" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="10" cy="11" r="2"   stroke="currentColor" stroke-width="1.5"/>
+            <line x1="10" y1="6.5"  x2="10" y2="9"   stroke="currentColor" stroke-width="1.2"/>
+            <line x1="8.5" y1="12.5" x2="4.5" y2="14" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="11.5" y1="12.5" x2="15.5" y2="14" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          Graph
+        </button>
       </header>
       <article id="content">Select a note from the left.</article>
     </main>
   </div>
 
   <div id="sidebar-overlay"></div>
+
+  <!-- ===== GRAPH OVERLAY ===== -->
+  <div id="graph-overlay">
+    <div id="graph-bg"></div>
+    <header id="graph-header">
+      <div class="graph-header-left">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+          <circle cx="10" cy="4"  r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="3"  cy="16" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="17" cy="16" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="10" cy="11" r="2"   stroke="currentColor" stroke-width="1.5"/>
+          <line x1="10" y1="6.5"  x2="10" y2="9"   stroke="currentColor" stroke-width="1.2"/>
+          <line x1="8.5" y1="12.5" x2="4.5" y2="14" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="11.5" y1="12.5" x2="15.5" y2="14" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+        <span class="graph-title">NODE GRAPH</span>
+      </div>
+      <span class="graph-hint">scroll to zoom &nbsp;·&nbsp; drag nodes &nbsp;·&nbsp; click to open</span>
+      <button id="graph-close">✕ Close</button>
+    </header>
+    <svg id="graph-svg"></svg>
+    <div id="graph-tooltip"></div>
+  </div>
+  <!-- ===== END GRAPH OVERLAY ===== -->
 
   <script src="notesManifest.js"></script>
   <script src="script.js"></script>

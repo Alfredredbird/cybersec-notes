@@ -949,8 +949,235 @@ body::before {
   body { -webkit-text-size-adjust: 100%; }
 }
 
+}
+
 @media (max-width: 480px) {
   #sidebar  { width: 88vw; }
   .prose    { padding: 18px 14px 80px; }
   #content h1 { font-size: 1.3rem; }
+}
+
+/* ========================================================
+   GRAPH VIEW
+   ======================================================== */
+
+/* --- Graph toggle button in breadcrumb --- */
+
+#breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#breadcrumb-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#graph-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-sm);
+  background: rgba(0, 201, 177, 0.05);
+  color: var(--text-secondary);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#graph-toggle:hover {
+  background: var(--glow-dim);
+  border-color: var(--glow);
+  color: var(--glow);
+  box-shadow: 0 0 12px rgba(0, 201, 177, 0.15);
+}
+
+/* --- Graph overlay --- */
+
+#graph-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#graph-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#graph-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 15% 85%, rgba(0, 120, 110, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 85% 15%, rgba(0, 50, 100, 0.22) 0%, transparent 55%),
+    linear-gradient(170deg, #04090f 0%, #060d1a 50%, #081525 100%);
+  z-index: 0;
+}
+
+/* Subtle grid */
+#graph-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 201, 177, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 201, 177, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* --- Graph header --- */
+
+#graph-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(6, 13, 26, 0.85);
+  backdrop-filter: blur(16px);
+  flex-shrink: 0;
+}
+
+.graph-header-left {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--glow);
+}
+
+.graph-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--glow);
+  text-shadow: 0 0 16px rgba(0, 201, 177, 0.4);
+}
+
+.graph-hint {
+  flex: 1;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+#graph-close {
+  padding: 6px 14px;
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#graph-close:hover {
+  background: rgba(255, 80, 80, 0.1);
+  border-color: rgba(255, 80, 80, 0.4);
+  color: #ff7b7b;
+}
+
+/* --- Graph SVG canvas --- */
+
+#graph-svg {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  cursor: grab;
+}
+
+#graph-svg:active { cursor: grabbing; }
+
+/* --- Tooltip --- */
+
+#graph-tooltip {
+  position: absolute;
+  z-index: 10;
+  padding: 7px 12px;
+  background: rgba(12, 24, 41, 0.95);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-sm);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--glow);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(0, 201, 177, 0.12);
+  white-space: nowrap;
+}
+
+#graph-tooltip.visible { opacity: 1; }
+
+/* --- Graph node labels (set via D3, but base style) --- */
+
+.graph-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  fill: var(--text-secondary);
+  pointer-events: none;
+  dominant-baseline: auto;
+}
+
+/* --- Graph loading state --- */
+
+#graph-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--text-muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.graph-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border);
+  border-top-color: var(--glow);
+  border-radius: 50%;
+  animation: graph-spin 0.9s linear infinite;
+}
+
+@keyframes graph-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .graph-hint { display: none; }
+  #graph-header { padding: 10px 14px; }
+  #graph-toggle span { display: none; } /* hide "Graph" text, keep icon */
 }

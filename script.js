@@ -307,6 +307,266 @@ function dismissSplash() {
   }, 2200);
 }
 
+// --- Graph View -----------------------------------------------
+
+let graphSimulation = null; // keep ref so we can stop it on close
+
+function graphNodeRadius(connectionCount) {
+  return 5 + Math.min(connectionCount * 2, 12);
+}
+
+async function buildGraphData() {
+  await ensureAllNotesLoaded();
+
+  // De-duplicate NOTES by id (manifest may have duplicates)
+  const seen = new Set();
+  const uniqueNotes = NOTES.filter(n => {
+    if (seen.has(n.id)) return false;
+    seen.add(n.id);
+    return true;
+  });
+
+  const nodes = uniqueNotes.map(n => ({ id: n.id, title: n.title, note: n }));
+  const linkSet = new Set();
+  const links   = [];
+
+  const wikiRegex = /\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]/g;
+
+  for (const note of uniqueNotes) {
+    const md = noteCache.get(note.path) || "";
+    let match;
+    wikiRegex.lastIndex = 0;
+    while ((match = wikiRegex.exec(md)) !== null) {
+      const target = resolveWikiNote(match[1].trim());
+      if (!target || target.id === note.id) continue;
+      const key = [note.id, target.id].sort().join("|||");
+      if (linkSet.has(key)) continue;
+      linkSet.add(key);
+      links.push({ source: note.id, target: target.id });
+    }
+  }
+
+  // Count connections per node
+  const connCount = {};
+  nodes.forEach(n => { connCount[n.id] = 0; });
+  links.forEach(l => {
+    connCount[l.source] = (connCount[l.source] || 0) + 1;
+    connCount[l.target] = (connCount[l.target] || 0) + 1;
+  });
+
+  return { nodes, links, connCount };
+}
+
+function renderGraph({ nodes, links, connCount }) {
+  const svgEl  = document.getElementById("graph-svg");
+  const tooltip = document.getElementById("graph-tooltip");
+  const svg    = d3.select(svgEl);
+  svg.selectAll("*").remove();
+
+  const W = svgEl.clientWidth  || 800;
+  const H = svgEl.clientHeight || 600;
+
+  // Zoom container
+  const g = svg.append("g");
+
+  const zoom = d3.zoom()
+    .scaleExtent([0.2, 4])
+    .on("zoom", e => g.attr("transform", e.transform));
+  svg.call(zoom);
+
+  // Simulation
+  if (graphSimulation) graphSimulation.stop();
+  graphSimulation = d3.forceSimulation(nodes)
+    .force("link",      d3.forceLink(links).id(d => d.id).distance(90).strength(0.4))
+    .force("charge",    d3.forceManyBody().strength(-220))
+    .force("center",    d3.forceCenter(W / 2, H / 2))
+    .force("collision", d3.forceCollide().radius(d => graphNodeRadius(connCount[d.id]) + 10));
+
+  // ── Defs: glow filter ──
+  const defs = svg.append("defs");
+
+  const glowFilter = defs.append("filter").attr("id", "node-glow").attr("x", "-50%").attr("y", "-50%").attr("width", "200%").attr("height", "200%");
+  glowFilter.append("feGaussianBlur").attr("stdDeviation", "4").attr("result", "blur");
+  const feMerge = glowFilter.append("feMerge");
+  feMerge.append("feMergeNode").attr("in", "blur");
+  feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+
+  const activeGlow = defs.append("filter").attr("id", "active-glow").attr("x", "-80%").attr("y", "-80%").attr("width", "260%").attr("height", "260%");
+  activeGlow.append("feGaussianBlur").attr("stdDeviation", "7").attr("result", "blur");
+  const feMerge2 = activeGlow.append("feMerge");
+  feMerge2.append("feMergeNode").attr("in", "blur");
+  feMerge2.append("feMergeNode").attr("in", "SourceGraphic");
+
+  // ── Links ──
+  const linkGroup = g.append("g").attr("class", "links");
+  const linkSel = linkGroup.selectAll("line")
+    .data(links)
+    .join("line")
+    .attr("stroke", "rgba(0,201,177,0.18)")
+    .attr("stroke-width", 1);
+
+  // ── Nodes ──
+  const nodeGroup = g.append("g").attr("class", "nodes");
+  const nodeSel = nodeGroup.selectAll("g")
+    .data(nodes)
+    .join("g")
+    .attr("class", "graph-node")
+    .style("cursor", "pointer")
+    .call(
+      d3.drag()
+        .on("start", (e, d) => {
+          if (!e.active) graphSimulation.alphaTarget(0.3).restart();
+          d.fx = d.x; d.fy = d.y;
+        })
+        .on("drag",  (e, d) => { d.fx = e.x; d.fy = e.y; })
+        .on("end",   (e, d) => {
+          if (!e.active) graphSimulation.alphaTarget(0);
+          d.fx = null; d.fy = null;
+        })
+    );
+
+  // Outer glow ring (only visible on hover / active)
+  nodeSel.append("circle")
+    .attr("class", "node-ring")
+    .attr("r", d => graphNodeRadius(connCount[d.id]) + 5)
+    .attr("fill", "none")
+    .attr("stroke", d => d.id === activeNoteId ? "rgba(0,201,177,0.35)" : "transparent")
+    .attr("stroke-width", 1.5);
+
+  // Main circle
+  nodeSel.append("circle")
+    .attr("class", "node-circle")
+    .attr("r", d => graphNodeRadius(connCount[d.id]))
+    .attr("fill", d => d.id === activeNoteId ? "#00c9b1"
+                     : connCount[d.id] > 0   ? "#1e3a55"
+                                             : "#112135")
+    .attr("stroke", d => d.id === activeNoteId ? "#00c9b1" : "rgba(0,201,177,0.3)")
+    .attr("stroke-width", d => d.id === activeNoteId ? 2 : 1)
+    .attr("filter", d => d.id === activeNoteId ? "url(#active-glow)" : "url(#node-glow)");
+
+  // Label
+  nodeSel.append("text")
+    .attr("class", "graph-label")
+    .attr("dy", d => graphNodeRadius(connCount[d.id]) + 13)
+    .attr("text-anchor", "middle")
+    .attr("fill", d => d.id === activeNoteId ? "#00c9b1" : "#4a7a8a")
+    .attr("font-size", "9.5px")
+    .attr("font-family", "IBM Plex Mono, monospace")
+    .text(d => d.title);
+
+  // ── Interaction ──
+  nodeSel
+    .on("mouseenter", function(e, d) {
+      // Highlight this node
+      d3.select(this).select(".node-circle")
+        .attr("fill",   "#00c9b1")
+        .attr("stroke", "#00c9b1")
+        .attr("filter", "url(#active-glow)");
+      d3.select(this).select(".node-ring")
+        .attr("stroke", "rgba(0,201,177,0.3)");
+      d3.select(this).select("text").attr("fill", "#00c9b1");
+
+      // Highlight connected links
+      const connIds = new Set();
+      linkSel
+        .attr("stroke", l => {
+          const connected = l.source.id === d.id || l.target.id === d.id;
+          if (connected) {
+            connIds.add(l.source.id === d.id ? l.target.id : l.source.id);
+          }
+          return connected ? "rgba(0,201,177,0.6)" : "rgba(0,201,177,0.05)";
+        })
+        .attr("stroke-width", l =>
+          l.source.id === d.id || l.target.id === d.id ? 1.5 : 1
+        );
+
+      // Dim unconnected nodes
+      nodeSel.style("opacity", n =>
+        n.id === d.id || connIds.has(n.id) ? 1 : 0.25
+      );
+
+      // Tooltip
+      tooltip.textContent = d.title;
+      tooltip.classList.add("visible");
+    })
+    .on("mousemove", e => {
+      const rect = svgEl.getBoundingClientRect();
+      tooltip.style.left = (e.clientX - rect.left + 14) + "px";
+      tooltip.style.top  = (e.clientY - rect.top  - 10) + "px";
+    })
+    .on("mouseleave", function(e, d) {
+      // Restore node appearance
+      d3.select(this).select(".node-circle")
+        .attr("fill",   d.id === activeNoteId ? "#00c9b1" : connCount[d.id] > 0 ? "#1e3a55" : "#112135")
+        .attr("stroke", d.id === activeNoteId ? "#00c9b1" : "rgba(0,201,177,0.3)")
+        .attr("filter", d.id === activeNoteId ? "url(#active-glow)" : "url(#node-glow)");
+      d3.select(this).select(".node-ring")
+        .attr("stroke", d.id === activeNoteId ? "rgba(0,201,177,0.35)" : "transparent");
+      d3.select(this).select("text")
+        .attr("fill", d.id === activeNoteId ? "#00c9b1" : "#4a7a8a");
+
+      linkSel
+        .attr("stroke", "rgba(0,201,177,0.18)")
+        .attr("stroke-width", 1);
+      nodeSel.style("opacity", 1);
+      tooltip.classList.remove("visible");
+    })
+    .on("click", (e, d) => {
+      e.stopPropagation();
+      closeGraphView();
+      loadNote(d.note);
+    });
+
+  // ── Tick ──
+  graphSimulation.on("tick", () => {
+    linkSel
+      .attr("x1", d => d.source.x)
+      .attr("y1", d => d.source.y)
+      .attr("x2", d => d.target.x)
+      .attr("y2", d => d.target.y);
+    nodeSel.attr("transform", d => `translate(${d.x},${d.y})`);
+  });
+}
+
+async function openGraphView() {
+  const overlay = document.getElementById("graph-overlay");
+  overlay.classList.add("visible");
+
+  // Show spinner while fetching
+  const svgEl = document.getElementById("graph-svg");
+  const existing = document.getElementById("graph-loading");
+  if (existing) existing.remove();
+
+  const loading = document.createElement("div");
+  loading.id = "graph-loading";
+  loading.innerHTML = `<div class="graph-spinner"></div><span>Charting the depths…</span>`;
+  overlay.appendChild(loading);
+
+  const data = await buildGraphData();
+  loading.remove();
+  renderGraph(data);
+
+  // Escape key closes
+  document.addEventListener("keydown", onGraphEscape);
+}
+
+function closeGraphView() {
+  const overlay = document.getElementById("graph-overlay");
+  overlay.classList.remove("visible");
+  if (graphSimulation) { graphSimulation.stop(); graphSimulation = null; }
+  document.getElementById("graph-svg").innerHTML = "";
+  document.removeEventListener("keydown", onGraphEscape);
+}
+
+function onGraphEscape(e) {
+  if (e.key === "Escape") closeGraphView();
+}
+
+function initGraphView() {
+  document.getElementById("graph-toggle").addEventListener("click", openGraphView);
+  document.getElementById("graph-close").addEventListener("click", closeGraphView);
+}
+
 // --- Init -----------------------------------------------------
 
 function init() {
@@ -314,6 +574,7 @@ function init() {
   searchInput.addEventListener("input", handleSearchInput);
   initMobileMenu();
   initHashRouting();
+  initGraphView();
 
   // Honour the URL hash on first load; fall back to first note
   const startNote = noteFromHash() || NOTES[0];
