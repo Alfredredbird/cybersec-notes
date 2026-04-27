@@ -37,8 +37,12 @@ The most common opensource [[SSH]] client/server.
 we can have `example.com` as our domain but a subdomain would be `admin.example.com`.
 ## DNS
 Domain Name System. Used for telling a client how to connect to a website.
+
+# Protocols
 ## FTP
-File Transfer Protocol.
+`File Transfer Protocol.`
+## HTTP
+`Typertext Transfer Protocol.`
 # Commands
 
 See [[Code Commands]]

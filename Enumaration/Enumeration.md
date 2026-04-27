@@ -41,7 +41,7 @@ PORT     STATE SERVICE         VERSION
 | Not valid before: 2025-06-21T07:57:41
 |_Not valid after:  2035-06-19T07:57:41
 ```
-
+Please see [[nmap]] for a more detailed look at scanning.
 # Directory Enumeration
 
 Directory enumeration can be done in various ways.

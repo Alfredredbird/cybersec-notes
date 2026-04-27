@@ -30,6 +30,13 @@ const NOTES = [
     path: "Enumaration/Enumeration.md",
     folder: "Enumaration"
   },
+    {
+    id: "nmap",
+    title: "NMap",
+    wikiName: "NMap",
+    path: "Enumaration/Tools/nmap.md",
+    folder: "Enumaration/Tools"
+  },
   {
     id: "social-media-osint",
     title: "Social Media OSINT",

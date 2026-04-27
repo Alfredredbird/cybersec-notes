@@ -1,7 +1,10 @@
 # Pretext
-This is the page about HTTP still needs work.
+[[Termonology#HTTP|HTTP]] or `Typertext Transfer Protocol` is a popular web protocol that is used by websites to server web pages or files. [[Termonology#HTTP|HTTP]] operates on the Client-Server model and handles every request as it's very on interaction.
 
 # HTTP VS HTTPS
+
+HTTPS is encrypted with an `SSL` certificate that sends a public key to the clients browser to encrypt the messages being sent during the connection.
+[[Termonology#HTTP|HTTP]] does not do any encryption and all messages are sent un-encrypted. 
 # Python HTTP Server
 
 Running [[Code Languages#Python|Python]] HTTP Servers are great for transferring files between machine.

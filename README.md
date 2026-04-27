@@ -26,6 +26,8 @@ Chinese Learning Resources.
 - Web Pen-Testing
 - More Protocols
 - Learning Linux
+- SQL Injecting 
+- The SQL Language 
 
 # In Process
 Currently I'm still in the early stages of formatting the pages and adding more depth, examples, and topics. These take quite a bit of time as I write these myself after doing some research.
