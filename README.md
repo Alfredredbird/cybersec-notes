@@ -36,7 +36,7 @@ Notes in progress:
 - Terminology/Scripts/Scripts
 - Privilege Escalation/Privilege Escalation
 - Privilege Escalation/Shells
-- Protocols/HTTP
+
 
 # Contributing
 I'm not 100% sure how I will be handling contributors at the moment as I do enjoy writing this but you are more then welcome to submit pull requests with new information or bug fixes. 

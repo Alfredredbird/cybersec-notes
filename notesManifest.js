@@ -151,6 +151,13 @@ const NOTES = [
     path: "Reverse Engenering/Resources.md",
     folder: "Reverse Engenering"
   },
+   {
+    id: "rev-tutorials-birdsong",
+    title: "Reverse Engineering Birdsong",
+    wikiName: "Reverse Engineering Birdsong",
+    path: "Reverse Engenering/Tutorials/BirdSong.md",
+    folder: "Reverse Engenering/Tutorials"
+  },
   {
     id: "rev-core",
     title: "Reverse Engineering",

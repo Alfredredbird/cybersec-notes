@@ -26,3 +26,7 @@ OR
 sudo ./linpeas.sh (if root)
 ```
  [[Scripts#LinPeas|Linpeas]] will go and do a system analysis.
+
+# Using LinPeas
+
+# Dissecting the Output
