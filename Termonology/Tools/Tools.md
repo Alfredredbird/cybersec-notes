@@ -3,6 +3,9 @@ Terminology of popular penetration tools.
 # Decryption
 ## JohnTheRipper
 A popular decryption set of tools.
+## hashid
+An amazing tool to detect a type of [[Termonology#Hash|hash]].
+## hashcat
 
 # Enumeration
 ## Nmap

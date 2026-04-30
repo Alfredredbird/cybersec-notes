@@ -165,7 +165,14 @@ const NOTES = [
     path: "Reverse Engenering/Reverse Engineering.md",
     folder: "Reverse Engenering"
   },
-
+    //crypto
+     {
+    id: "cryptography",
+    title: "Cryptography",
+    wikiName: "Cryptography",
+    path: "Cryptographyg/Cryptography.md",
+    folder: "Cryptography"
+  },
   // Tools
   {
     id: "gdb",

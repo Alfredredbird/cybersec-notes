@@ -11,13 +11,15 @@ This repo is still in very early stages and will be updated almost daily!
 
 - OSINT
 - Reverse Engineering
+- Cryptography
 - Reconnaissance
+- Privilege Escalation
 - Enumeration
 - Stenography
 - Terminology
 - Bonus:
 Chinese Learning Resources.
-
+ 
 # Topics to Be Covered 
 
 - Windows Internals
@@ -26,7 +28,7 @@ Chinese Learning Resources.
 - Web Pen-Testing
 - More Protocols
 - Learning Linux
-- SQL Injecting 
+- SQL Injection
 - The SQL Language 
 
 # In Process
@@ -36,6 +38,8 @@ Notes in progress:
 - Terminology/Scripts/Scripts
 - Privilege Escalation/Privilege Escalation
 - Privilege Escalation/Shells
+- Termonology/Termonology
+- Cryptography/Cryptography (needs WPA handshake decryption.)
 
 
 # Contributing

@@ -1,5 +1,6 @@
 # Pretext
-Popular terms used in the infosec/cybersecuirty feilds.
+Popular terms used in the infosec/cybersecuirty fields.
+(WORK IN PROGRESS)
 
 # Linux
 ## Shell
@@ -20,6 +21,9 @@ See [[Reverse Engineering]] for more info.
 ## Privilege Escalation
 The skill of escalating our privileges from a user to the highest user, often root.
 See [[Privilege Escalation]] for more info.
+## Cryptography
+The study of encryption and decryption.
+See [[Cryptography]] for more info.
 # Networking
 ## IP
 Internet Protocol.
@@ -41,14 +45,25 @@ Domain Name System. Used for telling a client how to connect to a website.
 # Protocols
 ## FTP
 `File Transfer Protocol.`
+See [[FTP]] for more info.
 ## HTTP
 `Typertext Transfer Protocol.`
+See [[HTTP]] for more info.
+## SSH
+`Secure Shell Protocol.`
+See [[SSH]] for more info.
+## SMTP
+`Simple Mail Transfer Protocol`
+See [[SMTP]] for more info.
 # Commands
 
 See [[Code Commands]]
 See [[Linux Commands]]
 # Reverse Engineering
+# Cryptography
 
+## Hash
+An encrypted string that we can decrypt.
 # Basic Terms
 ## Host
 The host machine.
@@ -56,6 +71,7 @@ The host machine.
 # Tools
 See [[Tools]]
 # Scripts
+See [[Scripts]]
 
 # Penetration Testing
 ## Penetration Testing
@@ -70,7 +86,9 @@ A Bash or ZSH shell that gets spawned on victim machine to allow the hacker into
 # Events
 ## CTF
 Capture The Flag, a mini hacking competition.
-
+## DEFCON
+An awesome hacking conference often help in Los Vegas.
+See here. https://defcon.org/
 # Terminals
 ## Fish
 Fish terminal.
@@ -82,3 +100,6 @@ Xterm terminal.
 # Word lists
 ## RockYou.txt
 A popular word list from the RockYou data breach. Contains ruffly 14 million passwords.
+## WeakPass 4
+A massive word-list from WeakPass.
+https://weakpass.com/

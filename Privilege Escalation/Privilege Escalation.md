@@ -30,3 +30,8 @@ ps -A (all)
 ```Bash
 ps axjf (all tree)
 ```
+
+# GTFO-Bins
+
+GTFO-Bins or `Get The Fuck Out Binaries` is an amazing website that hosts tons of ways to privilege escalate with vulnerabilities.
+https://gtfobins.github.io/
