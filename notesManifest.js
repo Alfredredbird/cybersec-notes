@@ -170,7 +170,7 @@ const NOTES = [
     id: "cryptography",
     title: "Cryptography",
     wikiName: "Cryptography",
-    path: "Cryptographyg/Cryptography.md",
+    path: "Cryptography/Cryptography.md",
     folder: "Cryptography"
   },
   // Tools
