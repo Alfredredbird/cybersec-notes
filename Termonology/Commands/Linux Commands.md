@@ -15,3 +15,15 @@ Checks the whois database for data on a domain.
 A tool to look through DNS records for a website.
 ## host 
 A command to grab the host name of a domain.
+
+# Forensics
+
+## ps
+[[ps]] is a common [[Termonology#Linux|Linux]] command to list running processes.
+
+# Generic
+
+## Grep
+A command to filter for texted in an output.
+## ls
+A command to list folders and directories.

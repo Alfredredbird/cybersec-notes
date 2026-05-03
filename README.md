@@ -33,6 +33,7 @@ Chinese Learning Resources.
 
 # In Process
 Currently I'm still in the early stages of formatting the pages and adding more depth, examples, and topics. These take quite a bit of time as I write these myself after doing some research.
+
 Notes in progress:
 - Privilege Escalation/Scripts/LinPeas
 - Terminology/Scripts/Scripts
@@ -40,6 +41,8 @@ Notes in progress:
 - Privilege Escalation/Shells
 - Termonology/Termonology
 - Cryptography/Cryptography (needs WPA handshake decryption.)
+- Linux/Commands
+- Linux/*
 
 
 # Contributing

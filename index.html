@@ -7,7 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/atom-one-dark.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 </head>
 <body>
@@ -77,7 +79,7 @@
     <aside id="sidebar">
       <h1>⬡ Cyber Kelp</h1>
       <div class="sidebar-scroll">
-        <input id="search" type="text" placeholder="Search notes..." autocomplete="off" spellcheck="false" />
+        <input id="search" type="text" placeholder="Search… (/ or Ctrl+K)" autocomplete="off" spellcheck="false" title="Press / or Ctrl+K to focus" />
         <div id="search-results"></div>
         <nav id="tree"></nav>
       </div>

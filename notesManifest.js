@@ -173,6 +173,28 @@ const NOTES = [
     path: "Cryptography/Cryptography.md",
     folder: "Cryptography"
   },
+  //Linux
+    {
+    id: "linux",
+    title: "Linux",
+    wikiName: "Linux",
+    path: "Linux/Linux.md",
+    folder: "Linux"
+  },
+  {
+    id: "linux-command-ps",
+    title: "ps",
+    wikiName: "ps",
+    path: "Linux/Commands/ps.md",
+    folder: "Linux/Commands/"
+  },
+  {
+    id: "linux-command-ls",
+    title: "ls",
+    wikiName: "ls",
+    path: "Linux/Commands/ls.md",
+    folder: "Linux/Commands/"
+  },
   // Tools
   {
     id: "gdb",

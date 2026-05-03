@@ -1181,3 +1181,181 @@ body::before {
   #graph-header { padding: 10px 14px; }
   #graph-toggle span { display: none; } /* hide "Graph" text, keep icon */
 }
+
+/* ========================================================
+   HIGHLIGHT.JS — Override to match ocean theme
+   ======================================================== */
+
+/* Strip hljs own background/padding — our pre block handles that */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+  color: var(--text-primary);
+}
+
+/* Tune atom-one-dark palette toward our teal accents */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name {
+  color: #61aeee;   /* keep blue keywords distinct */
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-selector-attr {
+  color: #98c379;   /* green strings — good contrast */
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-type {
+  color: #d19a66;   /* warm amber for literals */
+}
+
+.hljs-function,
+.hljs-title {
+  color: var(--glow);  /* teal for function names — ties into brand */
+}
+
+.hljs-variable,
+.hljs-params {
+  color: var(--seafoam);
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: var(--coral);
+}
+
+/* ========================================================
+   COPY-TO-CLIPBOARD BUTTON
+   ======================================================== */
+
+/* pre already has position:relative from existing styles */
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(0, 201, 177, 0.06);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--text-muted);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.18s, background 0.18s, color 0.18s, border-color 0.18s, box-shadow 0.18s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 2;
+}
+
+/* Always visible on touch devices */
+@media (hover: none) {
+  .copy-btn { opacity: 1; }
+}
+
+#content pre:hover .copy-btn,
+#content pre:focus-within .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  background: var(--glow-dim);
+  border-color: var(--glow-line);
+  color: var(--glow);
+  box-shadow: 0 0 10px rgba(0, 201, 177, 0.12);
+}
+
+.copy-btn.copied {
+  opacity: 1;
+  color: var(--glow);
+  border-color: var(--glow);
+  background: rgba(0, 201, 177, 0.12);
+  box-shadow: 0 0 12px rgba(0, 201, 177, 0.15);
+}
+
+.copy-btn.copy-error {
+  opacity: 1;
+  color: var(--coral);
+  border-color: var(--coral-dim);
+  background: var(--coral-dim);
+}
+
+/* Nudge pre padding-top to make room for the button */
+#content pre {
+  padding-top: 38px;
+}
+
+/* ========================================================
+   RECENTLY VIEWED SIDEBAR SECTION
+   ======================================================== */
+
+#recent-section {
+  margin-bottom: 4px;
+}
+
+.sidebar-section-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 6px 8px 5px;
+  user-select: none;
+}
+
+.section-icon {
+  color: var(--glow);
+  font-size: 0.8rem;
+  opacity: 0.75;
+  line-height: 1;
+}
+
+/* recent links are note-links — just indent slightly */
+.recent-link {
+  padding-left: 18px;
+  font-size: 0.8rem;
+}
+
+/* Divider between Recent and the main tree */
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 6px 10px;
+  border-radius: 1px;
+}
+
+/* ========================================================
+   KEYBOARD SHORTCUT HINTS
+   ======================================================== */
+
+/* Subtle kbd chip used for any inline shortcut display */
+kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  border: 1px solid var(--border-mid);
+  border-radius: 4px;
+  background: rgba(0, 201, 177, 0.06);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72em;
+  color: var(--text-muted);
+  line-height: 1.5;
+  vertical-align: middle;
+}

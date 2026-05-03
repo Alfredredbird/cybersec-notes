@@ -9,6 +9,92 @@ const searchResultsEl = document.getElementById("search-results");
 const noteCache = new Map(); // path -> markdown text
 let activeNoteId = null;
 
+// --- Navigation history ([ ] shortcuts) -----------------------
+const navStack = [];
+let navPos    = -1;
+let navSkip   = false;   // true while navigating so loadNote won't push again
+
+function pushNav(noteId) {
+  if (navSkip) return;
+  if (navStack[navPos] === noteId) return; // same note, don't duplicate
+  navStack.splice(navPos + 1);             // clear forward history
+  navStack.push(noteId);
+  navPos = navStack.length - 1;
+}
+
+function navigateBack() {
+  if (navPos <= 0) return;
+  navPos--;
+  navSkip = true;
+  const note = NOTES.find(n => n.id === navStack[navPos]);
+  if (note) loadNote(note);
+  navSkip = false;
+}
+
+function navigateForward() {
+  if (navPos >= navStack.length - 1) return;
+  navPos++;
+  navSkip = true;
+  const note = NOTES.find(n => n.id === navStack[navPos]);
+  if (note) loadNote(note);
+  navSkip = false;
+}
+
+// --- Recently viewed (localStorage) --------------------------
+const RECENT_KEY = "cyberkelp_recent";
+const MAX_RECENT = 6;
+
+function getRecentIds() {
+  try { return JSON.parse(localStorage.getItem(RECENT_KEY) || "[]"); }
+  catch { return []; }
+}
+
+function addToRecent(noteId) {
+  let ids = getRecentIds();
+  ids = [noteId, ...ids.filter(id => id !== noteId)].slice(0, MAX_RECENT);
+  try { localStorage.setItem(RECENT_KEY, JSON.stringify(ids)); } catch {}
+  renderRecentSection();
+}
+
+function renderRecentSection() {
+  const existing = document.getElementById("recent-section");
+  if (existing) existing.remove();
+
+  const ids = getRecentIds();
+  if (ids.length === 0) return;
+
+  const section = document.createElement("div");
+  section.id = "recent-section";
+
+  const label = document.createElement("div");
+  label.className = "sidebar-section-label";
+  label.innerHTML = `<span class="section-icon">◷</span>Recent`;
+  section.appendChild(label);
+
+  for (const id of ids) {
+    const note = NOTES.find(n => n.id === id);
+    if (!note) continue;
+    const link = document.createElement("div");
+    link.className = "note-link recent-link";
+    link.dataset.noteId = note.id;
+    link.textContent = note.title;
+    link.addEventListener("click", () => {
+      loadNote(note);
+      searchResultsEl.innerHTML = "";
+      searchInput.value = "";
+    });
+    section.appendChild(link);
+  }
+
+  const divider = document.createElement("div");
+  divider.className = "sidebar-divider";
+  section.appendChild(divider);
+
+  const scrollArea = document.querySelector(".sidebar-scroll");
+  const tree = document.getElementById("tree");
+  scrollArea.insertBefore(section, tree);
+}
+
 // --- Helpers --------------------------------------------------
 
 function slugify(text) {
@@ -93,6 +179,8 @@ async function loadNote(note, headingSlug = null) {
   activeNoteId = note.id;
   renderBreadcrumb(note);
   setActiveLink(note.id);
+  pushNav(note.id);      // navigation history
+  addToRecent(note.id);  // recently viewed
 
   contentEl.textContent = "Loading…";
 
@@ -123,6 +211,17 @@ async function loadNote(note, headingSlug = null) {
 
   addHeadingIds(prose);
   wireWikiLinks(prose);
+
+  // Syntax highlighting
+  if (typeof hljs !== "undefined") {
+    prose.querySelectorAll("pre code").forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  }
+
+  // Copy-to-clipboard buttons on every code block
+  addCopyButtons(prose);
+
   if (headingSlug) requestAnimationFrame(() => scrollToHeading(headingSlug));
 
   // Sync URL hash without pushing a new history entry
@@ -139,6 +238,56 @@ function wireWikiLinks(container) {
       const note    = NOTES.find((n) => n.id === noteId);
       if (note) loadNote(note, heading || null);
     });
+  });
+}
+
+// --- Copy-to-clipboard buttons --------------------------------
+
+function addCopyButtons(container) {
+  container.querySelectorAll("pre").forEach((pre) => {
+    if (pre.querySelector(".copy-btn")) return; // guard against double-adding
+    const btn = document.createElement("button");
+    btn.className = "copy-btn";
+    btn.setAttribute("aria-label", "Copy code to clipboard");
+    btn.innerHTML =
+      `<svg viewBox="0 0 14 14" fill="none" width="11" height="11" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="8" height="8" rx="1.2" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M2.5 9.5V2.5a1 1 0 0 1 1-1h6.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      </svg><span>Copy</span>`;
+
+    btn.addEventListener("click", () => {
+      const code = pre.querySelector("code");
+      const text = (code ? code.innerText : pre.innerText).trimEnd();
+
+      const finish = (ok) => {
+        const span = btn.querySelector("span");
+        span.textContent = ok ? "Copied!" : "Error";
+        btn.classList.toggle("copied", ok);
+        btn.classList.toggle("copy-error", !ok);
+        setTimeout(() => {
+          span.textContent = "Copy";
+          btn.classList.remove("copied", "copy-error");
+        }, 2000);
+      };
+
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(text).then(() => finish(true)).catch(() => finish(false));
+      } else {
+        // Fallback for HTTP / older browsers
+        try {
+          const ta = Object.assign(document.createElement("textarea"), {
+            value: text, style: "position:fixed;opacity:0"
+          });
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          ta.remove();
+          finish(true);
+        } catch { finish(false); }
+      }
+    });
+
+    pre.appendChild(btn);
   });
 }
 
@@ -567,14 +716,62 @@ function initGraphView() {
   document.getElementById("graph-close").addEventListener("click", closeGraphView);
 }
 
+// --- Keyboard shortcuts ---------------------------------------
+
+function initKeyboardShortcuts() {
+  document.addEventListener("keydown", (e) => {
+    const graphOpen = document.getElementById("graph-overlay").classList.contains("visible");
+    const tag = (document.activeElement || {}).tagName?.toLowerCase() ?? "";
+    const inInput = tag === "input" || tag === "textarea" || tag === "select";
+
+    // Ctrl+K  or  /  → focus search
+    if (!graphOpen && (
+      (e.key === "/" && !inInput) ||
+      (e.key === "k" && (e.ctrlKey || e.metaKey))
+    )) {
+      e.preventDefault();
+      searchInput.focus();
+      searchInput.select();
+      return;
+    }
+
+    // Escape → clear/close search (graph escape is handled separately in onGraphEscape)
+    if (e.key === "Escape" && !graphOpen) {
+      if (document.activeElement === searchInput || searchInput.value) {
+        e.preventDefault();
+        searchInput.blur();
+        searchInput.value = "";
+        searchResultsEl.innerHTML = "";
+      }
+      return;
+    }
+
+    // [  → navigate back in note history
+    if (e.key === "[" && !inInput && !graphOpen) {
+      e.preventDefault();
+      navigateBack();
+      return;
+    }
+
+    // ]  → navigate forward in note history
+    if (e.key === "]" && !inInput && !graphOpen) {
+      e.preventDefault();
+      navigateForward();
+      return;
+    }
+  });
+}
+
 // --- Init -----------------------------------------------------
 
 function init() {
   renderTree();
+  renderRecentSection();        // populate recent panel from localStorage on load
   searchInput.addEventListener("input", handleSearchInput);
   initMobileMenu();
   initHashRouting();
   initGraphView();
+  initKeyboardShortcuts();      // / · Ctrl+K · Escape · [ · ]
 
   // Honour the URL hash on first load; fall back to first note
   const startNote = noteFromHash() || NOTES[0];
