@@ -173,6 +173,13 @@ const NOTES = [
     path: "Cryptography/Cryptography.md",
     folder: "Cryptography"
   },
+  {
+    id: "handshakes",
+    title: "WiFi Handshakes",
+    wikiName: "WiFi Handshakes",
+    path: "Cryptography/Types/WiFi Handshakes.md",
+    folder: "Cryptography/Types"
+  },
   //Linux
     {
     id: "linux",
@@ -185,15 +192,29 @@ const NOTES = [
     id: "linux-command-ps",
     title: "ps",
     wikiName: "ps",
-    path: "Linux/Commands/ps.md",
-    folder: "Linux/Commands/"
+    path: "Linux/Commands/Forensic/ps.md",
+    folder: "Linux/Commands/Forensic"
   },
   {
     id: "linux-command-ls",
     title: "ls",
     wikiName: "ls",
-    path: "Linux/Commands/ls.md",
-    folder: "Linux/Commands/"
+    path: "Linux/Commands/Generic/ls.md",
+    folder: "Linux/Commands/Generic"
+  },
+    {
+    id: "linux-command-ifconfig",
+    title: "ifconfig",
+    wikiName: "ifconfig",
+    path: "Linux/Commands/Networking/ifconfig.md",
+    folder: "Linux/Commands/Networking"
+  },
+  {
+    id: "linux-command-cat",
+    title: "cat",
+    wikiName: "cat",
+    path: "Linux/Commands/Generic/cat.md",
+    folder: "Linux/Commands/Generic"
   },
   // Tools
   {
@@ -235,13 +256,6 @@ const NOTES = [
     path: "Termonology/Termonology.md",
     folder: "Termonology"
   },
-  {
-  id: "stenography",
-  title: "Stenography",
-  wikiName: "Stenography",
-  path: "Stenography/Stenography.md",
-  folder: "Stenography"
-},
   {
   id: "stenography",
   title: "Stenography",

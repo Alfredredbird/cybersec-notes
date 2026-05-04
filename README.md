@@ -17,6 +17,7 @@ This repo is still in very early stages and will be updated almost daily!
 - Enumeration
 - Stenography
 - Terminology
+- Linux Learning
 - Bonus:
 Chinese Learning Resources.
  
@@ -37,10 +38,9 @@ Currently I'm still in the early stages of formatting the pages and adding more 
 Notes in progress:
 - Privilege Escalation/Scripts/LinPeas
 - Terminology/Scripts/Scripts
-- Privilege Escalation/Privilege Escalation
 - Privilege Escalation/Shells
 - Termonology/Termonology
-- Cryptography/Cryptography (needs WPA handshake decryption.)
+- Cryptography/Types/WiFi Handshakes 
 - Linux/Commands
 - Linux/*
 

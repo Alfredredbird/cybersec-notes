@@ -15,7 +15,8 @@ Checks the whois database for data on a domain.
 A tool to look through DNS records for a website.
 ## host 
 A command to grab the host name of a domain.
-
+## ifconfig
+[[ifconfig]] is a [[Termonology#UNIX|UNIX]] command to check the wireless interface cards connected.
 # Forensics
 
 ## ps
@@ -27,3 +28,5 @@ A command to grab the host name of a domain.
 A command to filter for texted in an output.
 ## ls
 A command to list folders and directories.
+## cat
+The [[cat]] command is for reading the contents of a file.
